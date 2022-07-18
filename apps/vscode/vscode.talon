@@ -10,20 +10,20 @@ tag(): user.tabs
 window reload: user.vscode("workbench.action.reloadWindow")
 window close: user.vscode("workbench.action.closeWindow")
 #multiple_cursor.py support end
-
+open resource: key(ctrl-shift-r)
 please [<user.text>]:
     user.vscode("workbench.action.showCommands")
     insert(user.text or "")
 
 # Sidebar
-bar explore: user.vscode("workbench.view.explorer")
-bar extensions: user.vscode("workbench.view.extensions")
-bar outline: user.vscode("outline.focus")
-bar run: user.vscode("workbench.view.debug")
-bar search: user.vscode("workbench.view.search")
-bar source: user.vscode("workbench.view.scm")
-bar test: user.vscode("workbench.view.testing.focus")
-bar switch: user.vscode("workbench.action.toggleSidebarVisibility")
+view explore: user.vscode("workbench.view.explorer")
+view extensions: user.vscode("workbench.view.extensions")
+view outline: user.vscode("outline.focus")
+view run: user.vscode("workbench.view.debug")
+view search: user.vscode("workbench.view.search")
+view (source | git): user.vscode("workbench.view.scm")
+view test: user.vscode("workbench.view.testing.focus")
+view switch: user.vscode("workbench.action.toggleSidebarVisibility")
 
 symbol hunt [<user.text>]:
     user.vscode("workbench.action.gotoSymbol")
@@ -103,8 +103,8 @@ refactor this: user.vscode("editor.action.refactor")
 
 #code navigation
 (go declaration | follow): user.vscode("editor.action.revealDefinition")
-go back: user.vscode("workbench.action.navigateBack")
-go forward: user.vscode("workbench.action.navigateForward")
+(go back | retreat): user.vscode("workbench.action.navigateBack")
+(go forward | advance): user.vscode("workbench.action.navigateForward")
 go implementation: user.vscode("editor.action.goToImplementation")
 go type: user.vscode("editor.action.goToTypeDefinition")
 go usage: user.vscode("references-view.find")
@@ -207,7 +207,7 @@ terminal scroll down: user.vscode("workbench.action.terminal.scrollDown")
 terminal <number_small>: user.vscode_terminal(number_small)
 
 #TODO: should this be added to linecommands?
-copy line down: user.vscode("editor.action.copyLinesDownAction")
+(copy line down | mirror): user.vscode("editor.action.copyLinesDownAction")
 copy line up: user.vscode("editor.action.copyLinesUpAction")
 
 #Expand/Shrink AST Selection

@@ -4,10 +4,10 @@ find it:
 next one:
     edit.find_next()
 
-go word left:
+(go word | fly) left:
     edit.word_left()
 
-go word right:
+(go word | fly) right:
     edit.word_right()
 
 go left:
@@ -35,10 +35,10 @@ go way left:
 go way right:
     edit.line_end()
 
-go way down:
+(go way down | submerge):
     edit.file_end()
 
-go way up:
+(go way up | orbit):
     edit.file_start()
 
 go bottom:
@@ -54,10 +54,10 @@ go page up:
     edit.page_up()
 
 # selecting
-select line:
+shackle:
     edit.select_line()
 
-select all:
+(select all | landscape):
     edit.select_all()
 
 select left:
@@ -75,10 +75,10 @@ select down:
 select word:
     edit.select_word()
 
-select word left:
+(select word | queue) left:
     edit.extend_word_left()
 
-select word right:
+(select word | queue) right:
     edit.extend_word_right()
 
 select way left:
@@ -121,11 +121,11 @@ clear down:
 clear word:
     edit.delete_word()
 
-clear word left:
+(clear word left | splat):
     edit.extend_word_left()
     edit.delete()
 
-clear word right:
+(clear word right | squash):
     edit.extend_word_right()
     edit.delete()
 

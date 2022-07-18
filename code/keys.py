@@ -1,6 +1,6 @@
 from talon import Context, Module, actions, app
 
-default_alphabet = "air bat cap drum each fine gust harp sit jury crunch look made near odd pit quench red sun trap urge vest whale plex yank zip".split(
+default_alphabet = "arch bat cap drum each fine gust harp sit jury crunch look made near odd pit quench red sun trap urge vest whale plex yank zip".split(
     " "
 )
 letters_string = "abcdefghijklmnopqrstuvwxyz"
@@ -154,7 +154,7 @@ punctuation_words = {
 symbol_key_words = {
     "dot": ".",
     "point": ".",
-    "quote": "'",
+    "thin quote": "'",
     "question": "?",
     "apostrophe": "'",
     "L square": "[",
@@ -194,12 +194,13 @@ symbol_key_words = {
     "R angle": ">",
     "right angle": ">",
     "greater than": ">",
-    "star": "*",
+    "starling": "*",
     "hash": "#",
     "percent": "%",
     "caret": "^",
     "amper": "&",
     "pipe": "|",
+    "quotes": '"',
     "dubquote": '"',
     "double quote": '"',
     # Currencies
@@ -236,12 +237,22 @@ alternate_keys = {
     "delete": "backspace",
     #'junk': 'backspace',
     "forward delete": "delete",
-    "page up": "pageup",
-    "page down": "pagedown",
+    "sky": "pageup",
+    "dive": "pagedown",
+    "shock": "enter",
+    "cancel": "escape",
+    "ace": "space",
+    "clear": "backspace",
+    "deli": "delete",
+    "deckle": ":",
+    "left wally": "home",
+    "right wally": "end",
 }
+
 # mac apparently doesn't have the menu key.
 if app.platform in ("windows", "linux"):
     alternate_keys["menu key"] = "menu"
+    alternate_keys["menu"] = "menu"
     alternate_keys["print screen"] = "printscr"
 
 special_keys = {k: k for k in simple_keys}
@@ -256,6 +267,7 @@ ctx.lists["self.function_key"] = {
 class Actions:
     def move_cursor(s: str):
         """Given a sequence of directions, eg. 'left left up', moves the cursor accordingly using edit.{left,right,up,down}."""
+
         for d in s.split():
             if d in ("left", "right", "up", "down"):
                 getattr(actions.edit, d)()
