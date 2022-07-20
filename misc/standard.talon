@@ -11,5 +11,5 @@ redo [that]: edit.redo()
 paste match: edit.paste_match_style()
 [file] save: edit.save()
 (pad | padding): user.insert_between(" ", " ")
-(slap | tell sink): edit.line_insert_down()
+tell sink: edit.line_insert_down()
 
