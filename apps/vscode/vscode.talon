@@ -15,6 +15,8 @@ please [<user.text>]:
     user.vscode("workbench.action.showCommands")
     insert(user.text or "")
 
+cursorless toggle: user.vscode("cursorless.toggleDecorations")
+
 # Sidebar
 view explore: user.vscode("workbench.view.explorer")
 view extensions: user.vscode("workbench.view.extensions")
