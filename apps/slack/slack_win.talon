@@ -47,6 +47,8 @@ bold: key(ctrl-b)
 emote <user.text>: "{text}"
 toggle left sidebar: key(ctrl-shift-d)
 toggle right sidebar: key(ctrl-.)
+next (message): key(alt-shift-down)
+prior (message): key(alt-shift-up)
 
 # DEPRECATED
 (move | next) focus:

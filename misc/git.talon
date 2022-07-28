@@ -91,6 +91,7 @@ git (switch create | new branch) [<user.text>]:
 git switch orphan: "git switch --orphan "
 git submodule add:  "git submodule add "
 git tag: "git tag "
+git config: "git config "
 
 # Convenience
 git edit config: "git config --local -e\n"
