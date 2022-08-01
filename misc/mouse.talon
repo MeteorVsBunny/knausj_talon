@@ -1,3 +1,4 @@
+key(shift-f3): user.mouse_toggle_control_mouse()
 control mouse: user.mouse_toggle_control_mouse()
 zoom mouse: user.mouse_toggle_zoom_mouse()
 camera overlay: user.mouse_toggle_camera_overlay()
@@ -10,7 +11,7 @@ run calibration: user.mouse_calibrate()
 	# Touch automatically ends left drags so this is for right drags specifically
 	user.mouse_drag_end()
 
-righty:
+psychic:
 	mouse_click(1)
 	# close the mouse grid if open
 	user.grid_close()
@@ -50,7 +51,7 @@ mid click:
 	mouse_click()
 	# close the mouse grid
 	user.grid_close()
-left drag | drag:
+squat:
 	user.mouse_drag(0)
 	# close the mouse grid
 	user.grid_close()
@@ -58,7 +59,7 @@ right drag | righty drag:
 	user.mouse_drag(1)
 	# close the mouse grid
 	user.grid_close()
-end drag | drag end:
+bench:
     user.mouse_drag_end()
 wheel down: user.mouse_scroll_down()
 wheel down here:
