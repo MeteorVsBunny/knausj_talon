@@ -10,12 +10,16 @@ tag(): user.tabs
 window reload: user.vscode("workbench.action.reloadWindow")
 window close: user.vscode("workbench.action.closeWindow")
 #multiple_cursor.py support end
-open resource: key(ctrl-shift-r)
 please [<user.text>]:
     user.vscode("workbench.action.showCommands")
     insert(user.text or "")
 
+# my stuff
+open resource: key(ctrl-shift-r)
 cursorless toggle: user.vscode("cursorless.toggleDecorations")
+key(shift-f2): user.vscode("cursorless.toggleDecorations")
+snip: key(ctrl-d)
+search it: key(ctrl-h)
 
 # Sidebar
 view explore: user.vscode("workbench.view.explorer")
@@ -214,7 +218,7 @@ copy line up: user.vscode("editor.action.copyLinesUpAction")
 
 #Expand/Shrink AST Selection
 select less: user.vscode("editor.action.smartSelect.shrink")
-select (more|this): user.vscode("editor.action.smartSelect.expand")
+element: user.vscode("editor.action.smartSelect.expand")
 
 minimap: user.vscode("editor.action.toggleMinimap")
 maximize: user.vscode("workbench.action.minimizeOtherEditors")
