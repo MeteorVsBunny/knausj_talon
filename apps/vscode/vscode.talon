@@ -20,6 +20,7 @@ cursorless toggle: user.vscode("cursorless.toggleDecorations")
 key(shift-f2): user.vscode("cursorless.toggleDecorations")
 snip: key(ctrl-d)
 search it: key(ctrl-h)
+tunnel: key(f3)
 
 # Sidebar
 view explore: user.vscode("workbench.view.explorer")
