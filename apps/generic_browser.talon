@@ -8,6 +8,7 @@ address copy | url copy | copy address | copy url:
 go home: browser.go_home()
 advance: browser.go_forward()
 retreat: browser.go_back()
+key(f13): key(ctrl-d)
 go to {user.website}: browser.go(website)
 go private: browser.open_private_window()
 
