@@ -17,7 +17,6 @@ please [<user.text>]:
 # my stuff
 open resource: key(ctrl-shift-r)
 cursorless toggle: user.vscode("cursorless.toggleDecorations")
-key(shift-f2): user.vscode("cursorless.toggleDecorations")
 snip: key(ctrl-d)
 search it: key(ctrl-h)
 tunnel: key(f3)
