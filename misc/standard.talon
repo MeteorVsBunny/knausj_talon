@@ -12,4 +12,4 @@ paste match: edit.paste_match_style()
 [file] save: edit.save()
 (pad | padding): user.insert_between(" ", " ")
 tell sink: edit.line_insert_down()
-
+earthquake: key(ctrl-enter)
