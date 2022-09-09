@@ -51,7 +51,7 @@ find (everywhere | all) <user.text> [over]:
     sleep(500ms)
     insert(text)
 (search | find) class: user.idea("action GotoClass")
-(search | find) file: user.idea("action GotoFile")
+open resource: user.idea("action GotoFile")
 (search | find) path: user.idea("action FindInPath")
 (search | find) symbol: user.idea("action GotoSymbol")
 (search | find) symbol <user.text>$:
