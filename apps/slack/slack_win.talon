@@ -8,15 +8,15 @@ tag(): user.emoji
 # Workspaces
 workspace <number>: key("ctrl-{number}")
 # Channel
-(slack | lack) [channel] info: key(ctrl-shift-i)
+info: key(ctrl-shift-i)
 # Navigation
 focus (move | next): key(ctrl-`)
 (section | zone) [next]: key(f6)
 (section | zone) (previous | last): key(shift-f6)
 (slack | lack) [direct] messages: key(ctrl-shift-k)
 (slack | lack) threads: key(ctrl-shift-t)
-(slack | lack) (history [next] | back | backward): key(alt-left)
-(slack | lack) forward: key(alt-right)
+retreat: key(alt-left)
+advance: key(alt-right)
 (element | bit) [next]: key(tab)
 (element | bit) (previous | last): key(shift-tab)
 (slack | lack) (my stuff | activity): key(ctrl-shift-m)
@@ -49,6 +49,18 @@ toggle left sidebar: key(ctrl-shift-d)
 toggle right sidebar: key(ctrl-.)
 next: key(alt-shift-down)
 prior: key(alt-shift-up)
+
+open channel: key(ctrl-k)
+jump: key(ctrl-j)
+quit slack: key(ctrl-q)
+yes: "yes"
+yep: "yep"
+yeah: "yeah"
+hi: "hi"
+okay: "okay"
+no: "no"
+thanks: "thanks"
+done: "done"
 
 # DEPRECATED
 (move | next) focus:
