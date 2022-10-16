@@ -43,3 +43,6 @@ op array:
 
 op new:
     insert("new ")
+
+get: insert("get")
+set: insert("set")
