@@ -16,12 +16,22 @@ please [<user.text>]:
 
 # my stuff
 open resource: key(ctrl-shift-r)
+open [<user.text>]:
+    key(ctrl-shift-r)
+    insert(user.text or "")
 cursorless toggle: user.vscode("cursorless.toggleDecorations")
+key(f13): user.vscode("cursorless.toggleDecorations")
 snip: key(ctrl-d)
 slide up: key(alt-up)
 slide down: key(alt-down)
-search it: key(ctrl-h)
+search it:
+    key(ctrl-shift-f)
+    sleep(50ms)
+    key(ctrl-h)
 tunnel: key(f3)
+diff next: key(alt-f5)
+diff prior: key(alt-shift-f5)
+comment: user.vscode("editor.action.commentLine")
 
 # Sidebar
 view explore: user.vscode("workbench.view.explorer")
