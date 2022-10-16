@@ -9,6 +9,8 @@ go home: browser.go_home()
 advance: browser.go_forward()
 retreat: browser.go_back()
 key(f13): key(ctrl-d)
+jab <number_small>: user.click_by_voice(number_small, "")
+slam <number_small>: user.click_by_voice(number_small, "t")
 go to {user.website}: browser.go(website)
 go private: browser.open_private_window()
 

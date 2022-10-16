@@ -65,3 +65,8 @@ class browser_actions:
         actions.sleep("50ms")
         actions.insert(url)
         actions.key("enter")
+
+@mod.action_class
+class Actions:
+    def click_by_voice(n: int, action: str): "use click by voice plug-in."
+    

@@ -1,4 +1,4 @@
-from talon import Context, actions
+from talon import Context, actions, clip
 
 ctx = Context()
 ctx.matches = r"""
@@ -69,3 +69,14 @@ class BrowserActions:
 
     def toggle_dev_tools():
         actions.key("ctrl-shift-i")
+
+@ctx.action_class("user")
+class UserBrowserActions:
+    def click_by_voice(n, action):
+        original = clip.text()
+        if original is None:
+            original = u""
+
+        newText = str(n) + ":" + action + "!!!" + original
+        clip.set_text(newText)
+        actions.key("ctrl-shift-.")
