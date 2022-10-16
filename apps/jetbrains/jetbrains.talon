@@ -1,4 +1,3 @@
-# Requires https://plugins.jetbrains.com/plugin/10504-voice-code-idea
 app: jetbrains
 -
 tag(): user.line_commands
@@ -12,6 +11,7 @@ complete: user.idea("action CodeCompletion")
 perfect: user.idea("action CodeCompletion,action CodeCompletion")
 smart: user.idea("action SmartTypeCompletion")
 (done | finish): user.idea("action EditorCompleteStatement")
+quick fix: user.idea("action ShowIntentionActions")
 # Copying
 grab <number>: user.idea_grab(number)
 # Actions
@@ -19,6 +19,12 @@ grab <number>: user.idea_grab(number)
 (action | please) <user.text>:
     user.idea("action GotoAction")
     insert(text)
+import project:
+    user.idea("action GotoAction")
+    insert("import module from existing sources")
+maven update:
+    user.idea("action GotoAction")
+    insert("ReloadAllMavenProjects")
 # Refactoring
 refactor: user.idea("action Refactorings.QuickListPopupAction")
 refactor <user.text>:
@@ -32,18 +38,22 @@ extract interface: user.idea("action ExtractInterface")
 extract method: user.idea("action ExtractMethod")
 refactor in line: user.idea("action Inline")
 refactor move: user.idea("action Move")
-refactor rename: user.idea("action RenameElement")
+rename: user.idea("action RenameElement")
 rename file: user.idea("action RenameFile")
-fix (format | formatting): user.idea("action ReformatCode")
-fix imports: user.idea("action OptimizeImports")
+format code: user.idea("action ReformatCode")
+do imports: user.idea("action OptimizeImports")
+snip: user.idea("action EditorDeleteLine")
+mirror: user.idea("action EditorDuplicate")
+slide up: key(ctrl-shift-up)
+slide down: key(ctrl-shift-down)
 #navigation
-(go declaration | follow): user.idea("action GotoDeclaration")
+tunnel: user.idea("action GotoDeclaration")
 go implementation: user.idea("action GotoImplementation")
-go usage: user.idea("action FindUsages")
+references: user.idea("action FindUsages")
 go type: user.idea("action GotoTypeDeclaration")
 go test: user.idea("action GotoTest")
-go back: user.idea("action Back")
-go forward: user.idea("action Forward")
+retreat: user.idea("action Back")
+advance: user.idea("action Forward")
 # Search
 find (everywhere | all): user.idea("action SearchEverywhere")
 find (everywhere | all) <user.text> [over]:
@@ -52,6 +62,9 @@ find (everywhere | all) <user.text> [over]:
     insert(text)
 (search | find) class: user.idea("action GotoClass")
 open resource: user.idea("action GotoFile")
+open <user.text>:
+    user.idea("action GotoClass")
+    insert(text)
 (search | find) path: user.idea("action FindInPath")
 (search | find) symbol: user.idea("action GotoSymbol")
 (search | find) symbol <user.text>$:
@@ -91,14 +104,17 @@ go last mark: user.idea("action GotoPreviousBookmark")
 toggle mark <number>: user.idea("action ToggleBookmark{number}")
 go mark <number>: user.idea("action GotoBookmark{number}")
 # Folding
-expand deep: user.idea("action ExpandRegionRecursively")
-expand all: user.idea("action ExpandAllRegions")
-collapse deep: user.idea("action CollapseRegionRecursively")
-collapse all: user.idea("action CollapseAllRegions")
+expand: key(ctrl-plus)
+#expand deep: user.idea("action ExpandRegionRecursively")
+#expand all: user.idea("action ExpandAllRegions")
+expand all: key(ctrl-equals)
+#collapse deep: user.idea("action CollapseRegionRecursively")
+collapse [all]: key(ctrl-minus)
+#collapse all: user.idea("action CollapseAllRegions")
 # miscellaneous
 # XXX These might be better than the structural ones depending on language.
-go next (method | function): user.idea("action MethodDown")
-go last (method | function): user.idea("action MethodUp")
+method next: user.idea("action MethodDown")
+method prior: user.idea("action MethodUp")
 # Clipboard
 clippings: user.idea("action PasteMultiple")
 copy path: user.idea("action CopyPaths")
@@ -132,23 +148,40 @@ git (pull request | request): user.idea("action Github.Create.Pull.Request")
 git (view | show | list) (requests | request): user.idea("action Github.View.Pull.Request")
 git (annotate | blame): user.idea("action Annotate")
 git menu: user.idea("action Vcs.QuickListPopupAction")
+git branches: key(ctrl-shift-`)
+#git branches: user.idea("action Branches...")
+show history: user.idea("action ShowHistory")
+
 # Tool windows:
 # Toggling various tool windows
-toggle project: user.idea("action ActivateProjectToolWindow")
-toggle find: user.idea("action ActivateFindToolWindow")
-toggle run: user.idea("action ActivateRunToolWindow")
-toggle debug: user.idea("action ActivateDebugToolWindow")
-toggle events: user.idea("action ActivateEventLogToolWindow")
-toggle terminal: user.idea("action ActivateTerminalToolWindow")
-toggle git: user.idea("action ActivateVersionControlToolWindow")
-toggle structure: user.idea("action ActivateStructureToolWindow")
-toggle database: user.idea("action ActivateDatabaseToolWindow")
-toggle database changes: user.idea("action ActivateDatabaseChangesToolWindow")
-toggle make: user.idea("action ActivatemakeToolWindow")
-toggle to do: user.idea("action ActivateTODOToolWindow")
-toggle docker: user.idea("action ActivateDockerToolWindow")
-toggle favorites: user.idea("action ActivateFavoritesToolWindow")
-toggle last: user.idea("action JumpToLastWindow")
+view services: user.idea("action ActivateServicesToolWindow")
+view variables:
+    user.idea("action ActivateServicesToolWindow")
+    key(tab)
+# view debug:
+#     user.idea("action ActivateServicesToolWindow")
+#     key(tab)
+#     key(tab)
+view explore: user.idea("action ActivateProjectToolWindow")
+view search: user.idea("action ActivateFindToolWindow")
+view run: user.idea("action ActivateRunToolWindow")
+view debug: user.idea("action ActivateDebugToolWindow")
+view events: user.idea("action ActivateEventLogToolWindow")
+view terminal: user.idea("action ActivateTerminalToolWindow")
+view git: user.idea("action ActivateVersionControlToolWindow")
+view commit: user.idea("action ActivateCommitToolWindow")
+view outline: user.idea("action ActivateStructureToolWindow")
+view database: user.idea("action ActivateDatabaseToolWindow")
+view database changes: user.idea("action ActivateDatabaseChangesToolWindow")
+view make: user.idea("action ActivatemakeToolWindow")
+view to do: user.idea("action ActivateTODOToolWindow")
+view docker: user.idea("action ActivateDockerToolWindow")
+view favorites: user.idea("action ActivateFavoritesToolWindow")
+view messages: user.idea("action ActivateMessagesToolWindow")
+view maven: user.idea("action ActivateMavenToolWindow")
+view duplicates: user.idea("action ActivateDuplicatesToolWindow")
+view build: user.idea("action ActivateBuildToolWindow")
+view last: user.idea("action JumpToLastWindow")
 # Pin/dock/float
 toggle pinned: user.idea("action TogglePinnedMode")
 toggle docked: user.idea("action ToggleDockMode")
@@ -174,7 +207,7 @@ toggle fullscreen: user.idea("action ToggleFullScreen")
 toggle distraction [free mode]: user.idea("action ToggleDistractionFreeMode")
 toggle presentation [mode]: user.idea("action TogglePresentationMode")
 # Toggle additionals
-toggle comment: code.toggle_comment()
+comment: code.toggle_comment()
 # Quick popups
 change scheme: user.idea("action QuickChangeScheme")
 # Always javadoc
@@ -184,25 +217,31 @@ pop type: user.idea("action ExpressionTypeInfo")
 pop parameters: user.idea("action ParameterInfo")
 # Breakpoints / debugging
 go breakpoints: user.idea("action ViewBreakpoints")
-toggle [line] breakpoint: user.idea("action ToggleLineBreakpoint")
+breakpoint: user.idea("action ToggleLineBreakpoint")
 toggle method breakpoint: user.idea("action ToggleMethodBreakpoint")
 run menu: user.idea("action ChooseRunConfiguration")
 run test: user.idea("action RunClass")
-run test again: user.idea("action Rerun")
+#run last: user.idea("action Rerun")
 debug test: user.idea("action DebugClass")
 step over: user.idea("action StepOver")
-step into: user.idea("action StepInto")
+step in: user.idea("action StepInto")
+step out: user.idea("action StepOut")
 step smart: user.idea("action SmartStepInto")
 step to line: user.idea("action RunToCursor")
-continue: user.idea("action Resume")
+resume: user.idea("action Resume")
 # Grow / Shrink
 (grow | shrink) window right: user.idea("action ResizeToolWindowRight")
 (grow | shrink) window left: user.idea("action ResizeToolWindowLeft")
 (grow | shrink) window up: user.idea("action ResizeToolWindowUp")
 (grow | shrink) window down: user.idea("action ResizeToolWindowDown")
 # Movement
-go next (error | air): user.idea("action GotoNextError")
-go last (error | air): user.idea("action GotoPreviousError")
+#next occurrence: user.idea("action NextOccurrence")
+next occurrence: key(ctrl-alt-down)
+prior occurrence: key(ctrl-alt-up)
+next: user.idea("action GotoNextError")
+prior: user.idea("action GotoPreviousError")
+diff next: key(f7)
+diff prior: key(shift-f7)
 fix next (error | air):
     user.idea("action GotoNextError")
     user.idea("action ShowIntentionActions")
@@ -211,7 +250,7 @@ fix last (error | air):
     user.idea("action ShowIntentionActions")
 # Special Selects
 select less: user.idea("action EditorUnSelectWord")
-select (more|this): user.idea("action EditorSelectWord")
+element: user.idea("action EditorSelectWord")
 #jet brains-specific line commands. see line_commands.talon for generic ones
 expand <number> until <number>:
     user.select_range(number_1, number_2)
@@ -250,3 +289,10 @@ go camel right: user.camel_right()
 
 # requires plug-in: black-pycharm
 blacken: user.idea("action BLACKReformatCode")
+
+tomcat boot:
+    #key(ctrl-shift-alt-f10)
+    key(alt-shift-f9)
+    insert("tomcat")
+    key(enter)
+tomcat stop: key(ctrl-f2)
