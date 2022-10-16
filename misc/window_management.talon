@@ -9,9 +9,9 @@ running list: user.switcher_toggle_running()
 running close: user.switcher_hide_running()
 launch <user.launch_applications>: user.switcher_launch(launch_applications)
 
-snap <user.window_snap_position>: user.snap_window(window_snap_position)
-snap next [screen]: user.move_window_next_screen()
-snap last [screen]: user.move_window_previous_screen()
+window <user.window_snap_position>: user.snap_window(window_snap_position)
+monitor right: user.move_window_next_screen()
+monitor left: user.move_window_previous_screen()
 snap screen <number>: user.move_window_to_screen(number)
 snap <user.running_applications> <user.window_snap_position>:
     user.snap_app(running_applications, window_snap_position)
@@ -20,3 +20,28 @@ snap <user.running_applications> [screen] <number>:
 
 window max: key(super-up)
 dredge: key(alt-tab)
+desktop: key(super-d)
+
+flip terminal: user.switcher_focus("m s")
+
+flip draft: user.switcher_focus("wordpad")
+draft new:
+    #user.switcher_launch("wordpad")
+    user.switcher_focus("wordpad")
+    user.engine_mimic("start normal mode")
+draft that:
+    key(ctrl-c)
+    #user.switcher_launch("wordpad")
+    user.switcher_focus("wordpad")
+    user.engine_mimic("start normal mode")
+    key(ctrl-v)
+draft transfer:
+    key(ctrl-a)
+    key(ctrl-c)
+    key(alt-tab)
+    sleep(350ms)
+    key(ctrl-v)
+    user.engine_mimic("start command mode")
+    
+captain: user.engine_mimic("start command mode")
+dictate: user.engine_mimic("start normal mode")
