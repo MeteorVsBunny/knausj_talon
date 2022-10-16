@@ -138,8 +138,8 @@ formatters_dict = {
 formatters_words = {
     "yell": formatters_dict["ALL_CAPS"],
     "laws": formatters_dict["ALL_LOWERCASE"],
-    "gerrish": formatters_dict["PRIVATE_CAMEL_CASE"],
-    "dotted": formatters_dict["DOT_SEPARATED"],
+    "camel": formatters_dict["PRIVATE_CAMEL_CASE"],
+    "pebble": formatters_dict["DOT_SEPARATED"],
     "dub string": formatters_dict["DOUBLE_QUOTED_STRING"],
     "dunder": formatters_dict["DOUBLE_UNDERSCORE"],
     "hammer": formatters_dict["PUBLIC_CAMEL_CASE"],
