@@ -35,11 +35,14 @@ go way left:
 go way right:
     edit.line_end()
 
-(go way down | submerge):
+go way down:
     edit.file_end()
 
-(go way up | orbit):
+go way up:
     edit.file_start()
+
+submerge: key(ctrl-end)
+orbit: key(ctrl-home)
 
 go bottom:
     edit.file_end()
@@ -54,11 +57,16 @@ go page up:
     edit.page_up()
 
 # selecting
-shackle:
+select line:
     edit.select_line()
+shackle:
+    key(home)
+    sleep(5ms)
+    key(shift-end)
 
-(select all | landscape):
+select all:
     edit.select_all()
+landscape: key(ctrl-a)
 
 select left:
     edit.extend_left()
@@ -121,11 +129,16 @@ clear down:
 clear word:
     edit.delete_word()
 
-(clear word left | splat):
+splat:
+    key(ctrl-backspace)
+squash:
+    key(ctrl-delete)
+
+clear word left:
     edit.extend_word_left()
     edit.delete()
 
-(clear word right | squash):
+clear word right:
     edit.extend_word_right()
     edit.delete()
 
