@@ -38,8 +38,8 @@ list {user.talon_lists}: "{{{talon_lists}}}"
 capture {user.talon_captures}: "<{talon_captures}>"
 
 #commands for dictating key combos
-key <user.keys> over: "{keys}"
-key <user.modifiers> over: "{modifiers}"
+key <user.keys>: "{keys}"
+key <user.modifiers>: "{modifiers}"
 
 # all actions (requires uncommenting user.talon_populate_lists tag above)
 funk {user.talon_actions}:
