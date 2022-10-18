@@ -30,6 +30,8 @@ go way up: edit.file_start()
 
 submerge: key(ctrl-end)
 orbit: key(ctrl-home)
+shift submerge: key(ctrl-shift-end)
+shift orbit: key(ctrl-shift-home)
 
 go bottom: edit.file_end()
 
