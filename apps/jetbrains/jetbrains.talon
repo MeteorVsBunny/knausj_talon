@@ -72,6 +72,7 @@ open <user.text>:
     insert(text)
     key("enter")
 recent: user.idea("action RecentFiles")
+replace all: key(ctrl-shift-r)
 
 surround [this] with <user.text> [over]:
     idea("action SurroundWith")
@@ -150,8 +151,15 @@ git (view | show | list) (requests | request):
 git (annotate | blame): user.idea("action Annotate")
 git menu: user.idea("action Vcs.QuickListPopupAction")
 git branches: key(ctrl-shift-`)
+git stash apply:
+    user.idea("action GotoAction")
+    insert("Unstash changes")
+git fetch:
+    user.idea("action GotoAction")
+    insert("git fetch")
 #git branches: user.idea("action Branches...")
 show history: user.idea("action ShowHistory")
+rollback: key(ctrl-alt-z)
 
 # Tool windows:
 # Toggling various tool windows
@@ -303,3 +311,11 @@ tomcat boot:
     insert("tomcat")
     key(enter)
 tomcat stop: key(ctrl-f2)
+
+copy folder name:
+    user.idea("action ActivateProjectToolWindow")
+    key(left menu)
+    sleep(500ms)
+    key(down down down down enter)
+    sleep(500ms)
+    key(down enter escape)
