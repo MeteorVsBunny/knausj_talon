@@ -28,6 +28,7 @@ search it:
     key(ctrl-shift-f)
     sleep(50ms)
     key(ctrl-h)
+replace it: key(alt-e r r enter)
 tunnel: key(f3)
 diff next: key(alt-f5)
 diff prior: key(alt-shift-f5)
