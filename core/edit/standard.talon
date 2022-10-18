@@ -21,3 +21,9 @@ save as: key(ctrl-alt-s)
 (pad | padding): user.insert_between(" ", " ")
 tell sink: edit.line_insert_down()
 earthquake: key(ctrl-enter)
+
+switch to caster:
+    key(super-d)
+    sleep(1s)
+    key(c a s t e r enter)
+    speech.disable()
