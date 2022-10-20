@@ -75,7 +75,7 @@ recent: user.idea("action RecentFiles")
 replace all: key(ctrl-shift-r)
 
 surround [this] with <user.text> [over]:
-    idea("action SurroundWith")
+    user.idea("action SurroundWith")
     sleep(500ms)
     insert(text)
 # Making these longer to reduce collisions with real code dictation.
@@ -84,7 +84,7 @@ insert generated <user.text> [over]:
     sleep(500ms)
     insert(text)
 insert template <user.text> [over]:
-    idea("action InsertLiveTemplate")
+    user.idea("action InsertLiveTemplate")
     sleep(500ms)
     insert(text)
 create (template | snippet): user.idea("action SaveAsTemplate")
@@ -93,7 +93,7 @@ toggle recording: user.idea("action StartStopMacroRecording")
 change (recording | recordings): user.idea("action EditMacros")
 play recording: user.idea("action PlaybackLastMacro")
 play recording <user.text> [over]:
-    idea("action PlaySavedMacrosAction")
+    user.idea("action PlaySavedMacrosAction")
     insert(text)
     sleep(500ms)
     Key("enter")
@@ -273,7 +273,7 @@ paste <number> until <number>:
 refactor <number> until <number>:
     user.select_range(number_1, number_2)
     user.idea("action Refactorings.QuickListPopupAction")
-clone <number>: user.line_clone(number)
+bring row <number>: user.line_clone(number)
 
 #find/replace
 clear last <user.text> [over]: user.idea("find prev {text}, action EditorBackSpace")
@@ -319,3 +319,9 @@ copy folder name:
     key(down down down down enter)
     sleep(500ms)
     key(down enter escape)
+
+fetch settings: key(ctrl-alt-s)
+plate logger:
+    key(ctrl-j)
+    insert("logger")
+    key(enter)
