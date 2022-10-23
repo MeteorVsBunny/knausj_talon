@@ -15,47 +15,54 @@ cap: user.dictation_format_cap()
 ^(no space | no-space) that$: user.dictation_reformat_no_space()
 
 # Navigation
-go up <number_small> (line | lines):
+up <number_small>:
     edit.up()
     repeat(number_small - 1)
-go down <number_small> (line | lines):
+down <number_small>:
     edit.down()
     repeat(number_small - 1)
-go left <number_small> (word | words):
+left [<number_small>]:
+    edit.left()
+    r = number_small or 3
+    repeat(r + 5)
+right <number_small>:
+    edit.right()
+    repeat(number_small - 1)
+fly left <number_small>:
     edit.word_left()
     repeat(number_small - 1)
-go right <number_small> (word | words):
+fly right <number_small>:
     edit.word_right()
     repeat(number_small - 1)
-go line start: edit.line_start()
-go line end: edit.line_end()
+left wally: edit.line_start()
+right wally: edit.line_end()
 
 # Selection
-select left <number_small> (word | words):
+queue left <number_small>:
     edit.extend_word_left()
     repeat(number_small - 1)
-select right <number_small> (word | words):
+queue right <number_small>:
     edit.extend_word_right()
     repeat(number_small - 1)
-select left <number_small> (character | characters):
+queue left <number_small>:
     edit.extend_left()
     repeat(number_small - 1)
-select right <number_small> (character | characters):
+queue right <number_small>:
     edit.extend_right()
     repeat(number_small - 1)
-clear left <number_small> (word | words):
+splat <number_small>:
     edit.extend_word_left()
     repeat(number_small - 1)
     edit.delete()
-clear right <number_small> (word | words):
+squash <number_small>:
     edit.extend_word_right()
     repeat(number_small - 1)
     edit.delete()
-clear left <number_small> (character | characters):
+clear <number_small>:
     edit.extend_left()
     repeat(number_small - 1)
     edit.delete()
-clear right <number_small> (character | characters):
+deli <number_small>:
     edit.extend_right()
     repeat(number_small - 1)
     edit.delete()
@@ -75,3 +82,30 @@ spell that <user.formatters> <user.letters>:
 
 # Escape, type things that would otherwise be commands
 ^escape <user.text>$: auto_insert(user.text)
+
+<user.letter>: key(letter)
+shock: key(enter)
+tell sink: key(end enter)
+landscape: key(ctrl-a)
+cancel: key(escape)
+shackle:
+    key(home)
+    sleep(5ms)
+    key(shift-end)
+
+captain:
+    mode.disable("sleep")
+    mode.disable("dictation")
+    mode.enable("command")
+    user.engine_mimic("start command mode")
+
+draft transfer:
+    key(ctrl-a)
+    key(ctrl-c)
+    key(alt-tab)
+    sleep(350ms)
+    key(ctrl-v)
+    mode.disable("sleep")
+    mode.disable("dictation")
+    mode.enable("command")
+    user.engine_mimic("start command mode")
