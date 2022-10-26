@@ -49,6 +49,8 @@ toggle left sidebar: key(ctrl-shift-d)
 toggle right sidebar: key(ctrl-.)
 next: key(alt-shift-down)
 prior: key(alt-shift-up)
+next channel: key(alt-down)
+prior channel: key(alt-up)
 
 open channel: key(ctrl-k)
 jump: key(ctrl-j)
