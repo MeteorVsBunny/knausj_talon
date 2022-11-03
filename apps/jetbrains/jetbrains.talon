@@ -249,6 +249,7 @@ next occurrence: key(ctrl-alt-down)
 prior occurrence: key(ctrl-alt-up)
 next: user.idea("action GotoNextError")
 prior: user.idea("action GotoPreviousError")
+accept: key(alt-shift-enter)
 diff next: key(f7)
 diff prior: key(shift-f7)
 fix next (error | air):
