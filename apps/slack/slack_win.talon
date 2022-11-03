@@ -52,6 +52,9 @@ prior: key(alt-shift-up)
 next channel: key(alt-down)
 prior channel: key(alt-up)
 
+open [<user.text>]:
+    key(ctrl-k)
+    insert(user.text or "")
 open channel: key(ctrl-k)
 jump: key(ctrl-j)
 quit slack: key(ctrl-q)
