@@ -250,6 +250,9 @@ prior occurrence: key(ctrl-alt-up)
 next: user.idea("action GotoNextError")
 prior: user.idea("action GotoPreviousError")
 accept: key(alt-shift-enter)
+blind accept:
+    user.idea("action GotoNextError")
+    key(alt-shift-enter)
 diff next: key(f7)
 diff prior: key(shift-f7)
 fix next (error | air):
@@ -306,6 +309,8 @@ go camel right: user.camel_right()
 # requires plug-in: black-pycharm
 blacken: user.idea("action BLACKReformatCode")
 
+# harbour: user.idea("action CloseAllTabs")
+
 tomcat boot:
     #key(ctrl-shift-alt-f10)
     key(alt-shift-f9)
@@ -325,4 +330,9 @@ fetch settings: key(ctrl-alt-s)
 plate logger:
     key(ctrl-j)
     insert("logger")
+    key(enter)
+
+plate [if] not null:
+    key(ctrl-j)
+    insert("inn")
     key(enter)
