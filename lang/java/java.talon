@@ -37,6 +37,7 @@ type {user.code_type} array:
     user.code_operator_subscript()
 
 [state] {user.java_modifier}: insert(user.java_modifier + " ")
+state this: insert("this")
 
 op array: user.code_operator_subscript()
 
