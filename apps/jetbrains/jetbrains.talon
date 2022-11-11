@@ -54,6 +54,7 @@ go type: user.idea("action GotoTypeDeclaration")
 go test: user.idea("action GotoTest")
 retreat: user.idea("action Back")
 advance: user.idea("action Forward")
+last edit location: key(ctrl-shift-backspace)
 # Search
 find (everywhere | all): user.idea("action SearchEverywhere")
 find (everywhere | all) <user.text> [over]:
@@ -151,6 +152,9 @@ git (view | show | list) (requests | request):
 git (annotate | blame): user.idea("action Annotate")
 git menu: user.idea("action Vcs.QuickListPopupAction")
 git branches: key(ctrl-shift-`)
+git stash push:
+    user.idea("action GotoAction")
+    insert("stash changes")
 git stash apply:
     user.idea("action GotoAction")
     insert("Unstash changes")
@@ -232,6 +236,11 @@ run menu: user.idea("action ChooseRunConfiguration")
 run test: user.idea("action RunClass")
 #run last: user.idea("action Rerun")
 debug test: user.idea("action DebugClass")
+debug last: key(shift-f9)
+project test:
+    user.idea("action ActivateProjectToolWindow")
+    key(ctrl-minus)
+    key(ctrl-shift-f10)
 step over: user.idea("action StepOver")
 step in: user.idea("action StepInto")
 step out: user.idea("action StepOut")
