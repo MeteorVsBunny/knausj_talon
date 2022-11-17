@@ -14,6 +14,7 @@ smart: user.idea("action SmartTypeCompletion")
 quick fix: user.idea("action ShowIntentionActions")
 # Copying
 grab <number>: user.idea_grab(number)
+
 # Actions
 (action | please): user.idea("action GotoAction")
 (action | please) <user.text>:
@@ -25,6 +26,7 @@ import project:
 maven update:
     user.idea("action GotoAction")
     insert("ReloadAllMavenProjects")
+
 # Refactoring
 refactor: user.idea("action Refactorings.QuickListPopupAction")
 refactor <user.text>:
@@ -42,10 +44,13 @@ rename: user.idea("action RenameElement")
 rename file: user.idea("action RenameFile")
 format code: user.idea("action ReformatCode")
 do imports: user.idea("action OptimizeImports")
+
+# Editing
 snip: user.idea("action EditorDeleteLine")
 mirror: user.idea("action EditorDuplicate")
 slide up: key(ctrl-shift-up)
 slide down: key(ctrl-shift-down)
+
 #navigation
 tunnel: user.idea("action GotoDeclaration")
 go implementation: user.idea("action GotoImplementation")
@@ -55,6 +60,9 @@ go test: user.idea("action GotoTest")
 retreat: user.idea("action Back")
 advance: user.idea("action Forward")
 last edit location: key(ctrl-shift-backspace)
+method next: user.idea("action MethodDown")
+method prior: user.idea("action MethodUp")
+
 # Search
 find (everywhere | all): user.idea("action SearchEverywhere")
 find (everywhere | all) <user.text> [over]:
@@ -80,15 +88,15 @@ surround [this] with <user.text> [over]:
     sleep(500ms)
     insert(text)
 # Making these longer to reduce collisions with real code dictation.
-insert generated <user.text> [over]:
+insert generated:
     user.idea("action Generate")
-    sleep(500ms)
-    insert(text)
+#todo plate
 insert template <user.text> [over]:
     user.idea("action InsertLiveTemplate")
     sleep(500ms)
     insert(text)
 create (template | snippet): user.idea("action SaveAsTemplate")
+
 # Recording
 toggle recording: user.idea("action StartStopMacroRecording")
 change (recording | recordings): user.idea("action EditMacros")
@@ -98,6 +106,7 @@ play recording <user.text> [over]:
     insert(text)
     sleep(500ms)
     Key("enter")
+    
 # Marks
 go mark: user.idea("action ShowBookmarks")
 toggle mark: user.idea("action ToggleBookmark")
@@ -105,6 +114,7 @@ go next mark: user.idea("action GotoNextBookmark")
 go last mark: user.idea("action GotoPreviousBookmark")
 toggle mark <number>: user.idea("action ToggleBookmark{number}")
 go mark <number>: user.idea("action GotoBookmark{number}")
+
 # Folding
 expand: key(ctrl-plus)
 #expand deep: user.idea("action ExpandRegionRecursively")
@@ -115,8 +125,7 @@ collapse [all]: key(ctrl-minus)
 #collapse all: user.idea("action CollapseAllRegions")
 # miscellaneous
 # XXX These might be better than the structural ones depending on language.
-method next: user.idea("action MethodDown")
-method prior: user.idea("action MethodUp")
+
 # Clipboard
 clippings: user.idea("action PasteMultiple")
 copy path: user.idea("action CopyPaths")
@@ -264,6 +273,7 @@ blind accept:
     key(alt-shift-enter)
 diff next: key(f7)
 diff prior: key(shift-f7)
+diff revert: key(ctrl-alt-r)
 fix next (error | air):
     user.idea("action GotoNextError")
     user.idea("action ShowIntentionActions")
@@ -319,6 +329,7 @@ go camel right: user.camel_right()
 blacken: user.idea("action BLACKReformatCode")
 
 # harbour: user.idea("action CloseAllTabs")
+tab actions: key(alt-w t)
 
 tomcat boot:
     #key(ctrl-shift-alt-f10)
@@ -336,12 +347,9 @@ copy folder name:
     key(down enter escape)
 
 fetch settings: key(ctrl-alt-s)
-plate logger:
-    key(ctrl-j)
-    insert("logger")
-    key(enter)
 
-plate [if] not null:
-    key(ctrl-j)
-    insert("inn")
+plate <user.intellij_templates>:
+    user.idea("action InsertLiveTemplate")
+    # key(ctrl-j)
+    insert(intellij_templates)
     key(enter)
