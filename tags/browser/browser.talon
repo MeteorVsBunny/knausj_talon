@@ -21,6 +21,10 @@ voice hints on:
     sleep(50ms)
     insert(":+")
     key(enter)
+ready join:
+    key(ctrl-d ctrl-e tab:9)
+    user.engine_sleep()
+    
 go to {user.website}: browser.go(website)
 go private: browser.open_private_window()
 
