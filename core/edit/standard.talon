@@ -27,3 +27,5 @@ switch over caster:
     sleep(1s)
     key(c a s t e r enter)
     speech.disable()
+
+captain: user.engine_mimic("start command mode")

@@ -95,6 +95,7 @@ shackle:
 stoosh: key(ctrl-c)
 spark: key(ctrl-v)
 ace: key(space)
+spammer: insert(, )
 
 captain:
     mode.disable("sleep")
@@ -108,7 +109,6 @@ draft transfer:
     key(alt-tab)
     sleep(350ms)
     key(ctrl-v)
-    mode.disable("sleep")
     mode.disable("dictation")
     mode.enable("command")
     user.engine_mimic("start command mode")
