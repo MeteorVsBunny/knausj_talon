@@ -207,8 +207,8 @@ symbol_key_words = {
     "dubquote": '"',
     "double quote": '"',
     # Currencies
-    "dollar": "$",
-    "pound": "£",
+    "dollar sign": "$",
+    "pound sign": "£",
 }
 
 # make punctuation words also included in {user.symbol_keys}

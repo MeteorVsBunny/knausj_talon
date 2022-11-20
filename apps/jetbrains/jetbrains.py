@@ -21,9 +21,9 @@ port_mapping = {
     "com.jetbrains.datagrip": 8664,
     "com.jetbrains.goland-EAP": 8659,
     "com.jetbrains.goland": 8659,
-    "com.jetbrains.intellij-EAP": 8654,
+    "com.jetbrains.intellij-EAP": 8653,
     "com.jetbrains.intellij.ce": 8654,
-    "com.jetbrains.intellij": 8654,
+    "com.jetbrains.intellij": 8653,
     "com.jetbrains.PhpStorm": 8662,
     "com.jetbrains.pycharm": 8658,
     "com.jetbrains.rider": 8660,
@@ -31,16 +31,16 @@ port_mapping = {
     "com.jetbrains.rubymine-EAP": 8661,
     "com.jetbrains.WebStorm": 8663,
     "google-android-studio": 8652,
-    "idea64.exe": 8654,
-    "IntelliJ IDEA": 8654,
+    "idea64.exe": 8653,
+    "IntelliJ IDEA": 8653,
     "jetbrains-appcode": 8655,
     "jetbrains-clion": 8657,
     "jetbrains-datagrip": 8664,
     "jetbrains-goland-eap": 8659,
     "jetbrains-goland": 8659,
     "jetbrains-idea-ce": 8654,
-    "jetbrains-idea-eap": 8654,
-    "jetbrains-idea": 8654,
+    "jetbrains-idea-eap": 8653,
+    "jetbrains-idea": 8653,
     "jetbrains-phpstorm": 8662,
     "jetbrains-pycharm-ce": 8658,
     "jetbrains-pycharm": 8658,
@@ -372,3 +372,18 @@ class UserActions:
 
     # def split_last():
     # def split_number(index: int):
+
+mod.list("intellij_templates", desc="intellij templates")
+
+ctx.lists["user.intellij_templates"] = {
+    "else": "else",
+    "else if": "ei",
+    "logger": "logger",
+    "not null": "inn",
+}
+
+
+@mod.capture(rule="{user.intellij_templates}")
+def intellij_templates(m) -> str:
+    "An intellij template"
+    return m.intellij_templates

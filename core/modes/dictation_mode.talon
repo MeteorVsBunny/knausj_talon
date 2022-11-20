@@ -5,7 +5,7 @@ mode: dictation
 
 # Everything here should call `auto_insert()` (instead of `insert()`), to preserve the state to correctly auto-capitalize/auto-space.
 # (Talonscript string literals implicitly call `auto_insert`, so there's no need to wrap those)
-<user.raw_prose>: auto_insert(raw_prose)
+# :<user.raw_prose>: auto_insert(raw_prose)
 cap: user.dictation_format_cap()
 # Hyphenated variants are for Dragon.
 (no cap | no-caps): user.dictation_format_no_cap()
@@ -92,6 +92,10 @@ shackle:
     key(home)
     sleep(5ms)
     key(shift-end)
+stoosh: key(ctrl-c)
+spark: key(ctrl-v)
+ace: key(space)
+spammer: insert(, )
 
 captain:
     mode.disable("sleep")
@@ -105,7 +109,6 @@ draft transfer:
     key(alt-tab)
     sleep(350ms)
     key(ctrl-v)
-    mode.disable("sleep")
     mode.disable("dictation")
     mode.enable("command")
     user.engine_mimic("start command mode")
