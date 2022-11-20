@@ -131,9 +131,12 @@ class Actions:
         """Toggles camera overlay"""
         toggle_camera_overlay(not config.show_camera)
 
-    def mouse_toggle_zoom_mouse():
+    def mouse_toggle_zoom_mouse(enabled: bool = None):
         """Toggles zoom mouse"""
-        eye_zoom_mouse.toggle_zoom_mouse(not eye_zoom_mouse.zoom_mouse.enabled)
+        if enabled is not None:
+            eye_zoom_mouse.toggle_zoom_mouse(enabled)
+        else:
+            eye_zoom_mouse.toggle_zoom_mouse(not eye_zoom_mouse.zoom_mouse.enabled)
 
     def mouse_cancel_zoom_mouse():
         """Cancel zoom mouse if pending"""
