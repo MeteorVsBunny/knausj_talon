@@ -9,6 +9,7 @@ running list: user.switcher_toggle_running()
 running close: user.switcher_hide_running()
 launch <user.launch_applications>: user.switcher_launch(launch_applications)
 
+window stretch: key(super-shift-up)
 window <user.window_snap_position>: user.snap_window(window_snap_position)
 monitor right: user.move_window_next_screen()
 monitor left: user.move_window_previous_screen()
