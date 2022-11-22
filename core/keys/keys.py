@@ -170,7 +170,7 @@ symbol_key_words = {
     "minus": "-",
     "dash": "-",
     "equals": "=",
-    "plus": "+",
+    "plus sign": "+",
     "tilde": "~",
     "exclaim": "!",
     "down score": "_",

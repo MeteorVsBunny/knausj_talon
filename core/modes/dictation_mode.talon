@@ -95,7 +95,8 @@ shackle:
 stoosh: key(ctrl-c)
 spark: key(ctrl-v)
 ace: key(space)
-spammer: insert(, )
+spammer: insert(", ")
+deckle: insert(":")
 
 captain:
     mode.disable("sleep")
