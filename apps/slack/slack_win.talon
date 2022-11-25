@@ -52,6 +52,8 @@ prior: key(alt-shift-up)
 next channel: key(alt-down)
 prior channel: key(alt-up)
 
+huddle toggle: key(ctrl-shift-h)
+keyboard: key(ctrl-/)
 open [<user.text>]:
     key(ctrl-k)
     insert(user.text or "")
