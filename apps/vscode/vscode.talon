@@ -30,6 +30,7 @@ search it:
     # sleep(50ms)
     # key(ctrl-h)
 replace it: key(alt-e r r enter)
+do replace: key(alt-d)
 tunnel: key(f3)
 diff next: key(alt-f5)
 diff prior: key(alt-shift-f5)
