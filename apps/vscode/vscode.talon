@@ -35,6 +35,8 @@ tunnel: key(f3)
 diff next: key(alt-f5)
 diff prior: key(alt-shift-f5)
 comment: user.vscode("editor.action.commentLine")
+next: key(f8)
+prior: key(shift-f8)
 
 # Sidebar
 view explore: user.vscode("workbench.view.explorer")
