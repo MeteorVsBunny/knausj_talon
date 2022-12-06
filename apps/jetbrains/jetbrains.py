@@ -376,10 +376,16 @@ class UserActions:
 mod.list("intellij_templates", desc="intellij templates")
 
 ctx.lists["user.intellij_templates"] = {
+    "if": "if",
     "else": "else",
     "else if": "ei",
-    "logger": "logger",
     "not null": "inn",
+    "logger": "logger",
+    "log debug": "logd",
+    "log warn": "logw",
+    "log trace": "logt",
+    "log error": "loge",
+    "system out": "sout",
 }
 
 

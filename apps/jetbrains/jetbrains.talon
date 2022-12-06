@@ -256,6 +256,7 @@ step out: user.idea("action StepOut")
 step smart: user.idea("action SmartStepInto")
 step to line: user.idea("action RunToCursor")
 resume: user.idea("action Resume")
+inspect: key(alt-f8)
 # Grow / Shrink
 (grow | shrink) window right: user.idea("action ResizeToolWindowRight")
 (grow | shrink) window left: user.idea("action ResizeToolWindowLeft")
