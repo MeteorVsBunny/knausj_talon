@@ -241,13 +241,14 @@ pop parameters: user.idea("action ParameterInfo")
 # Breakpoints / debugging
 go breakpoints: user.idea("action ViewBreakpoints")
 breakpoint: user.idea("action ToggleLineBreakpoint")
+condition breakpoint: key(ctrl-shift-f8)
 toggle method breakpoint: user.idea("action ToggleMethodBreakpoint")
 run menu: user.idea("action ChooseRunConfiguration")
 run test: user.idea("action RunClass")
 #run last: user.idea("action Rerun")
 debug test: user.idea("action DebugClass")
 debug last: key(shift-f9)
-project test:
+run project test:
     user.idea("action ActivateProjectToolWindow")
     key(ctrl-minus)
     key(ctrl-shift-f10)
@@ -333,7 +334,7 @@ blacken: user.idea("action BLACKReformatCode")
 # harbour: user.idea("action CloseAllTabs")
 tab actions: key(alt-w t)
 
-publish: key(ctrl-f10)
+tomcat publish: key(ctrl-f10)
 tomcat boot:
     #key(ctrl-shift-alt-f10)
     key(alt-shift-f9)
