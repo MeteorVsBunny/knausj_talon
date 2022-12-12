@@ -44,12 +44,6 @@ queue left <number_small>:
 queue right <number_small>:
     edit.extend_word_right()
     repeat(number_small - 1)
-queue left <number_small>:
-    edit.extend_left()
-    repeat(number_small - 1)
-queue right <number_small>:
-    edit.extend_right()
-    repeat(number_small - 1)
 splat <number_small>:
     edit.extend_word_left()
     repeat(number_small - 1)
