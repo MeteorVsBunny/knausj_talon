@@ -10,7 +10,7 @@ settings():
     user.help_max_command_lines_per_page = 50
 
     # Set the max number of contexts display per page in help
-    user.help_max_contexts_per_page = 20
+    user.help_max_contexts_per_page = 40
 
     # The default amount used when scrolling continuously
     user.mouse_continuous_scroll_amount = 80
@@ -37,7 +37,7 @@ settings():
     user.grids_put_one_bottom_left = 1
 
     # The number of lines of command history to display by default
-    user.command_history_display = 10
+    user.command_history_display = 20
 
     # The number of lines of command history to keep in total;
     # "command history more" to display all of them, "command history less" to restore
