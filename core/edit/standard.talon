@@ -19,6 +19,10 @@ paste match: edit.paste_match_style()
 [file] save all: edit.save_all()
 save as: key(ctrl-alt-s)
 (pad | padding): user.insert_between(" ", " ")
+(pad | padding) <user.symbol_key>+:
+    insert(" ")
+    user.insert_many(symbol_key_list)
+    insert(" ")
 tell sink: edit.line_insert_down()
 earthquake: key(ctrl-enter)
 
