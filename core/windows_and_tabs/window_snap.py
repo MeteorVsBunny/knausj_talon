@@ -219,6 +219,8 @@ _snap_positions = {
     "top": RelativeScreenPos(0, 0, 1, 0.5),
     "bottom": RelativeScreenPos(0, 0.5, 1, 1),
     "middle": RelativeScreenPos(0.25, 0, 0.75, 1),
+    "mid": RelativeScreenPos(0.25, 0, 0.75, 1),
+    "wide": RelativeScreenPos(0.125, 0, 0.875, 1),
     # Thirds
     # .--.--.--.
     # |  |  |  |
