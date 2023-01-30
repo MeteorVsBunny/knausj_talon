@@ -36,6 +36,18 @@ diff prior: user.vscode("workbench.action.compareEditor.previousChange")
 comment: user.vscode("editor.action.commentLine")
 next: key(f8)
 prior: key(shift-f8)
+go work voice:
+    user.vscode("workbench.action.openRecent")
+    sleep(50ms)
+    insert("voice")
+    sleep(250ms)
+    key("enter")
+go work notes:
+    user.vscode("workbench.action.openRecent")
+    sleep(50ms)
+    insert("notes")
+    sleep(250ms)
+    key("enter")
 
 # Sidebar
 view explore: user.vscode("workbench.view.explorer")
