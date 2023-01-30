@@ -13,7 +13,7 @@ settings(): speech.engine = 'wav2letter'
 window reload: user.vscode("workbench.action.reloadWindow")
 window close: user.vscode("workbench.action.closeWindow")
 #multiple_cursor.py support end
-please [<user.text>]:
+(action | please) [<user.text>]:
     user.vscode("workbench.action.showCommands")
     insert(user.text or "")
 
@@ -40,6 +40,8 @@ diff prior: key(alt-shift-f5)
 comment: user.vscode("editor.action.commentLine")
 next: key(f8)
 prior: key(shift-f8)
+tab new: key(ctrl-n)
+format code: key(ctrl-shift-f)
 
 # Sidebar
 view explore: user.vscode("workbench.view.explorer")
