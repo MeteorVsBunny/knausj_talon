@@ -197,6 +197,7 @@ symbol_key_words = {
     "R paren": ")",
     "right paren": ")",
     "brace": "{",
+    "l brace": "{",
     "left brace": "{",
     "brack": "{",
     "bracket": "{",
