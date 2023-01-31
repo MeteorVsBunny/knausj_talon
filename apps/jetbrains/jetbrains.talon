@@ -20,12 +20,8 @@ grab <number>: user.idea_grab(number)
 (action | please) <user.text>:
     user.idea("action GotoAction")
     insert(text)
-import project:
-    user.idea("action GotoAction")
-    insert("import module from existing sources")
-maven update:
-    user.idea("action GotoAction")
-    insert("ReloadAllMavenProjects")
+import project: user.idea("action ImportModule")
+maven update: user.idea("action Maven.Reimport")
 
 # Refactoring
 refactor: user.idea("action Refactorings.QuickListPopupAction")
@@ -74,7 +70,7 @@ open resource: user.idea("action GotoFile")
 open <user.text>:
     user.idea("action GotoClass")
     insert(text)
-(search | find) path: user.idea("action FindInPath")
+search it: user.idea("action FindInPath")
 (search | find) symbol: user.idea("action GotoSymbol")
 (search | find) symbol <user.text>$:
     user.idea("action GotoSymbol")
@@ -83,6 +79,8 @@ open <user.text>:
 recent: user.idea("action RecentFiles")
 replace all: key(ctrl-shift-r)
 
+surround with:
+    user.idea("action SurroundWith")
 surround [this] with <user.text> [over]:
     user.idea("action SurroundWith")
     sleep(500ms)
@@ -153,6 +151,7 @@ git pull: user.idea("action Vcs.UpdateProject")
 git commit: user.idea("action CheckinProject")
 # git push: user.idea("action CheckinProject")
 git push: key(ctrl-shift-k)
+git commit push: user.idea("action Git.Commit.And.Push.Executor")
 git log: user.idea("action Vcs.ShowTabbedFileHistory")
 git browse: user.idea("action Github.Open.In.Browser")
 git (gets | gist): user.idea("action Github.Create.Gist")
@@ -162,15 +161,9 @@ git (view | show | list) (requests | request):
 git (annotate | blame): user.idea("action Annotate")
 git menu: user.idea("action Vcs.QuickListPopupAction")
 git branches: key(ctrl-shift-`)
-git stash push:
-    user.idea("action GotoAction")
-    insert("stash changes")
-git stash apply:
-    user.idea("action GotoAction")
-    insert("Unstash changes")
-git fetch:
-    user.idea("action GotoAction")
-    insert("git fetch")
+git stash push: user.idea("action Git.Stash")
+git stash apply: user.idea("action Git.Unstash")
+git fetch: user.idea("action Git.Fetch")
 #git branches: user.idea("action Branches...")
 show history: user.idea("action ShowHistory")
 rollback: key(ctrl-alt-z)
@@ -180,7 +173,7 @@ rollback: key(ctrl-alt-z)
 view services: user.idea("action ActivateServicesToolWindow")
 view variables:
     user.idea("action ActivateServicesToolWindow")
-    key(tab)
+    # key(tab)
 # view debug:
 #     user.idea("action ActivateServicesToolWindow")
 #     key(tab)
@@ -331,24 +324,19 @@ go camel right: user.camel_right()
 # requires plug-in: black-pycharm
 blacken: user.idea("action BLACKReformatCode")
 
+create new file: user.idea("action NewFile")
+compare files: user.idea("action CompareTwoFiles")
+
+replace it: key(ctrl-r)
+
 # harbour: user.idea("action CloseAllTabs")
 tab actions: key(alt-w t)
 
 tomcat publish: key(ctrl-f10)
-tomcat boot:
-    #key(ctrl-shift-alt-f10)
-    key(alt-shift-f9)
-    insert("tomcat")
-    key(enter)
+tomcat boot: user.run_file("tomcat")
 tomcat stop: key(ctrl-f2)
 
-copy folder name:
-    user.idea("action ActivateProjectToolWindow")
-    key(left menu)
-    sleep(500ms)
-    key(down down down down enter)
-    sleep(500ms)
-    key(down enter escape)
+copy folder name: user.copy_folder_name()
 
 fetch settings: key(ctrl-alt-s)
 
@@ -357,3 +345,5 @@ plate <user.intellij_templates>:
     # key(ctrl-j)
     insert(intellij_templates)
     key(enter)
+
+# key(f13): core.repeat_command(1)

@@ -380,6 +380,7 @@ ctx.lists["user.intellij_templates"] = {
     "else": "else",
     "else if": "ei",
     "not null": "inn",
+    "for each": "foreach",
     "logger": "logger",
     "log debug": "logd",
     "log warn": "logw",
@@ -393,3 +394,34 @@ ctx.lists["user.intellij_templates"] = {
 def intellij_templates(m) -> str:
     "An intellij template"
     return m.intellij_templates
+
+def copy_folder_name():
+    actions.user.idea("action ActivateProjectToolWindow")
+    actions.key("left menu")
+    actions.sleep("500ms")
+    actions.key("down down down down enter")
+    actions.sleep("500ms")
+    actions.key("down enter escape")
+
+def fetch_file(file_name):
+    actions.user.idea("action GotoFile")
+    actions.insert(file_name)
+    actions.sleep("500ms")
+    actions.key("enter")
+
+def run_file(file_name):
+    actions.key("alt-shift-f9")
+    actions.insert(file_name)
+    actions.key("enter")
+
+@mod.action_class
+class MyActions:
+    def copy_folder_name():
+        ""
+        copy_folder_name()
+    def fetch_file(file_name: str):
+        ""
+        fetch_file(file_name)
+    def run_file(file_name: str):
+        ""
+        run_file(file_name)
