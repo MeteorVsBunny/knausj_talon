@@ -37,6 +37,7 @@ comment: user.vscode("editor.action.commentLine")
 next: key(f8)
 prior: key(shift-f8)
 tab new: key(ctrl-n)
+create new tab: key(ctrl-n)
 format code: key(ctrl-shift-f)
 go work voice:
     user.vscode("workbench.action.openRecent")
@@ -50,6 +51,7 @@ go work notes:
     insert("notes")
     sleep(250ms)
     key("enter")
+create new folder: user.vscode("explorer.newFolder")
 
 # Sidebar
 view explore: user.vscode("workbench.view.explorer")
