@@ -172,8 +172,13 @@ rollback: key(ctrl-alt-z)
 # Toggling various tool windows
 view services: user.idea("action ActivateServicesToolWindow")
 view variables:
+    key(escape)
     user.idea("action ActivateServicesToolWindow")
     # key(tab)
+view stack:
+    key(escape)
+    user.idea("action ActivateServicesToolWindow")
+    key(shift-tab)
 # view debug:
 #     user.idea("action ActivateServicesToolWindow")
 #     key(tab)
