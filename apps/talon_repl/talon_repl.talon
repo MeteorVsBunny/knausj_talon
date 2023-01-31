@@ -54,3 +54,7 @@ tag(): user.talon_python
 ^debug {user.running} windows$:
     insert("actions.user.talon_debug_app_windows('{running}')")
     key(enter)
+
+events tail:
+    insert("events.tail()")
+    key(enter)
