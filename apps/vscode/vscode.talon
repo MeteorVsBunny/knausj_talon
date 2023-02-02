@@ -39,13 +39,13 @@ prior: key(shift-f8)
 tab new: key(ctrl-n)
 create new tab: key(ctrl-n)
 format code: key(ctrl-shift-f)
-go work voice:
+go (work|space) voice:
     user.vscode("workbench.action.openRecent")
     sleep(50ms)
     insert("voice")
     sleep(250ms)
     key("enter")
-go work notes:
+go (work|space) notes:
     user.vscode("workbench.action.openRecent")
     sleep(50ms)
     insert("notes")
