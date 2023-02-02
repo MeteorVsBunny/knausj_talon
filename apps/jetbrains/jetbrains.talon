@@ -10,7 +10,7 @@ tag(): user.tabs
 complete: user.idea("action CodeCompletion")
 perfect: user.idea("action CodeCompletion,action CodeCompletion")
 smart: user.idea("action SmartTypeCompletion")
-(done | finish): user.idea("action EditorCompleteStatement")
+# (done | finish): user.idea("action EditorCompleteStatement")
 quick fix: user.idea("action ShowIntentionActions")
 # Copying
 grab <number>: user.idea_grab(number)
@@ -256,7 +256,7 @@ step out: user.idea("action StepOut")
 step smart: user.idea("action SmartStepInto")
 step to line: user.idea("action RunToCursor")
 resume: user.idea("action Resume")
-inspect: key(alt-f8)
+inspect: key(alt-f8 enter)
 # Grow / Shrink
 (grow | shrink) window right: user.idea("action ResizeToolWindowRight")
 (grow | shrink) window left: user.idea("action ResizeToolWindowLeft")
@@ -275,6 +275,8 @@ blind accept:
 diff next: key(f7)
 diff prior: key(shift-f7)
 diff revert: key(ctrl-alt-r)
+file next: key(alt-shift-right)
+file prior: key(alt-shift-left)
 fix next (error | air):
     user.idea("action GotoNextError")
     user.idea("action ShowIntentionActions")
@@ -352,3 +354,5 @@ plate <user.intellij_templates>:
     key(enter)
 
 # key(f13): core.repeat_command(1)
+
+vim toggle: user.idea("action VimPluginToggle")
