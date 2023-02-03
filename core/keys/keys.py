@@ -266,8 +266,8 @@ alternate_keys = {
     "deli": "delete",
     "deckle": ":",
     "semper": ";",
-    "left wally": "home",
-    "right wally": "end",
+    "left wall": "home",
+    "right wall": "end",
     "tabby": "tab",
 }
 
