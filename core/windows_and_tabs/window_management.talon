@@ -25,6 +25,7 @@ desktop: key(super-d)
 
 flip chrome: key(super-2)
 flip code: key(super-4)
+flip outlook: key(super-0)
 flip terminal: user.switcher_focus("m s")
 
 flip draft: user.switcher_focus("wordpad")
