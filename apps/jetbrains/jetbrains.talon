@@ -114,12 +114,16 @@ toggle mark <number>: user.idea("action ToggleBookmark{number}")
 go mark <number>: user.idea("action GotoBookmark{number}")
 
 # Folding
-expand: key(ctrl-plus)
+expand:
+    # key(ctrl-plus)
+    user.idea("action ExpandRegion")
+collapse:
+    user.idea("action CollapseRegion")
 #expand deep: user.idea("action ExpandRegionRecursively")
 #expand all: user.idea("action ExpandAllRegions")
 expand all: key(ctrl-equals)
 #collapse deep: user.idea("action CollapseRegionRecursively")
-collapse [all]: key(ctrl-minus)
+collapse all: key(ctrl-minus)
 #collapse all: user.idea("action CollapseAllRegions")
 # miscellaneous
 # XXX These might be better than the structural ones depending on language.
