@@ -1,0 +1,111 @@
+{
+	"cluck": {
+		"sounds": ["cluck"],
+		"threshold": {
+			"<power": 19,
+			">power": 2,
+			">probability": 0.9
+		},
+		"throttle": {
+			"cluck": 0.2,
+			"pop": 0.2,
+			"tut": 0.2
+		}
+	},
+    "loud_cluck": {
+		"sounds": ["cluck"],
+		"threshold": {
+			">power": 20,
+			">probability": 0.9
+		},
+		"throttle": {
+			"cluck": 1,
+			"pop": 1,
+			"tut": 1
+		}
+	},
+    "tut": {
+		"sounds": ["tut"],
+		"threshold": {
+			">power": 2,
+			">probability": 0.91
+		}
+	},
+    "pop": {
+		"sounds": ["pop"],
+		"threshold": {
+			">power": 1,
+			">probability": 0.95
+		},
+		"throttle": {
+			"cluck": 0.2,
+			"pop": 0.1,
+			"tut": 0.2
+		}
+	},
+    "shh": {
+		"sounds": ["shh"],
+		"threshold": {
+			">power": 1,
+			">probability": 0.5
+		},
+        "detect_after": 0.1,
+        "graceperiod": 0.3,
+        "grace_threshold": {
+            ">probability": 0.5,
+            ">power": 1
+        },
+        "throttle": {
+			"cluck": 0.5,
+			"pop": 0.5,
+			"hiss": 0.5,
+			"speech": 0.5
+		}
+	},
+    "hiss": {
+		"sounds": ["hiss"],
+		"threshold": {
+			">power": 1,
+			"<power": 25,
+			">probability": 0.7
+		},
+        "detect_after": 0.1,
+        "graceperiod": 0.2,
+        "grace_threshold": {
+            ">probability": 0.5,
+            ">power": 1
+        },
+        "throttle": {
+			"cluck": 0.5,
+			"pop": 0.5,
+			"shh": 0.5,
+			"speech": 0.5
+		}
+	},
+    "background": {
+		"sounds": ["background", "keyboard"],
+		"threshold": {
+			">power": 1,
+			">probability": 0.9
+		},
+        "detect_after": 0.05,
+        "throttle": {
+			"cluck": 1,
+			"pop": 0.75,
+			"tut": 1
+		}
+	},
+    "speech": {
+		"sounds": ["speech"],
+		"threshold": {
+			">power": 16,
+			">probability": 0.9
+		},
+        "detect_after": 0.05,
+        "throttle": {
+			"cluck": 1,
+			"pop": 0.75,
+			"tut": 1
+		}
+	}
+}

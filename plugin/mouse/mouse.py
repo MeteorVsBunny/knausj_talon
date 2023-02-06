@@ -138,6 +138,13 @@ class Actions:
         else:
             eye_zoom_mouse.toggle_zoom_mouse(not eye_zoom_mouse.zoom_mouse.enabled)
 
+    def do_zoom_mouse(enabled: bool = True):
+        """Clicks zoom mouse"""
+        if enabled is not None:
+            eye_zoom_mouse.zoom_mouse.on_pop(enabled)
+        else:
+            eye_zoom_mouse.zoom_mouse.on_pop(not eye_zoom_mouse.zoom_mouse.enabled)
+
     def mouse_cancel_zoom_mouse():
         """Cancel zoom mouse if pending"""
         if (
