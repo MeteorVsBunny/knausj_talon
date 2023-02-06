@@ -172,9 +172,11 @@ app: jetbrains
 @ctx.action_class("app")
 class AppActions:
     def tab_next():
+        actions.key("escape")
         actions.user.idea("action NextTab")
 
     def tab_previous():
+        actions.key("escape")
         actions.user.idea("action PreviousTab")
 
     def tab_close():
@@ -387,6 +389,8 @@ ctx.lists["user.intellij_templates"] = {
     "log trace": "logt",
     "log error": "loge",
     "system out": "sout",
+    "add wrapper": "addwrapper",
+    "add list": "addlist",
 }
 
 
