@@ -4,7 +4,7 @@
 		"threshold": {
 			"<power": 19,
 			">power": 2,
-			">probability": 0.9
+			">probability": 0.99
 		},
 		"throttle": {
 			"cluck": 0.2,
@@ -16,7 +16,7 @@
 		"sounds": ["cluck"],
 		"threshold": {
 			">power": 20,
-			">probability": 0.9
+			">probability": 0.98
 		},
 		"throttle": {
 			"cluck": 1,
@@ -28,7 +28,7 @@
 		"sounds": ["tut"],
 		"threshold": {
 			">power": 2,
-			">probability": 0.91
+			">probability": 0.99
 		}
 	},
     "pop": {
