@@ -69,7 +69,7 @@ find (everywhere | all) <user.text> [over]:
 open resource: user.idea("action GotoFile")
 open <user.text>:
     user.idea("action GotoClass")
-    insert(text)
+    user.insert_formatted(text, "CAPITALIZE_ALL_WORDS,NO_SPACES")
 search it: user.idea("action FindInPath")
 (search | find) symbol: user.idea("action GotoSymbol")
 (search | find) symbol <user.text>$:
