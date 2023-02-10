@@ -1,7 +1,7 @@
 import re
 # from talon import actions, Module
 
-FILE_NAME = 'tags\\browser\\chrome_my'
+FILE_NAME = ''
 
 def convert():
     with open(FILE_NAME + ".py", 'r') as f:
@@ -52,8 +52,14 @@ def convert():
         talon_content = re.sub(r'"(.*)":', r'\1:', talon_content, flags=re.M)
         talon_content = re.sub(r'R\((.*)\),', r'\1', talon_content, flags=re.M)
         talon_content = re.sub(r'Function\((.*)\)', r'user.\1()', talon_content, flags=re.M)
-
+        talon_content = re.sub(r' \+ ', '\n    ', talon_content, flags=re.M)
         talon_content = re.sub(r'        ', '', talon_content, flags=re.M)
+        talon_content = re.sub(r'		', '', talon_content, flags=re.M)
+
+        talon_content = re.sub(r': ', ':\n    ', talon_content, flags=re.M)
+
+        talon_content = re.sub(r'actions.', '', talon_content, flags=re.M)
+
         talon_content = talon_content.strip()
 
         # print(py_content)
