@@ -52,6 +52,7 @@ prior: key(alt-shift-up)
 channel next: key(alt-down)
 channel prior: key(alt-up)
 
+create new message: key(ctrl-n)
 huddle toggle: key(ctrl-shift-h)
 keyboard: key(ctrl-/)
 open [<user.text>]:

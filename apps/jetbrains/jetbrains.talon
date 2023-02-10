@@ -343,7 +343,9 @@ replace it: key(ctrl-r)
 # harbour: user.idea("action CloseAllTabs")
 tab actions: key(alt-w t)
 
-tomcat publish: key(ctrl-f10)
+tomcat publish:
+    # key(ctrl-f10)
+    user.idea("action UpdateRunningApplication")
 tomcat boot: user.run_file("tomcat")
 tomcat stop: key(ctrl-f2)
 
