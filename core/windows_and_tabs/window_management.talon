@@ -23,6 +23,7 @@ window max: key(super-up)
 dredge: key(alt-tab)
 desktop: key(super-d)
 
+flip explore: key(super-1)
 flip chrome: key(super-2)
 flip code: key(super-4)
 flip outlook: key(super-0)
@@ -53,9 +54,9 @@ draft retrieve:
     
 # captain: user.engine_mimic("start command mode")
 dictate:
-    # mode.disable("sleep")
-    # mode.disable("command")
-    mode.enable("dictation")
-    user.code_clear_language_mode()
-    mode.disable("user.gdb")
-    user.engine_mimic("start normal mode")
+    mode.disable("sleep")
+    mode.disable("command")
+    # mode.enable("dictation")
+    # user.code_clear_language_mode()
+    # mode.disable("user.gdb")
+    # user.engine_mimic("start normal mode")
