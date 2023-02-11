@@ -14,3 +14,7 @@ not mode: sleep
     mode.disable("sleep")
     mode.enable("dictation")
     mode.enable("command")
+
+key(f14):
+    speech.disable()
+    user.engine_sleep()
