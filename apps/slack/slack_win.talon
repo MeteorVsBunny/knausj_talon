@@ -47,13 +47,19 @@ bold: key(ctrl-b)
 emote <user.text>: "{text}"
 toggle left sidebar: key(ctrl-shift-d)
 toggle right sidebar: key(ctrl-.)
+
+# my stuff
 next: key(alt-shift-down)
 prior: key(alt-shift-up)
 channel next: key(alt-down)
 channel prior: key(alt-up)
 
 create new message: key(ctrl-n)
-huddle toggle: key(ctrl-shift-h)
+huddle toggle:
+    key(ctrl-shift-h)
+    speech.disable()
+    user.engine_sleep()
+key(f13): key(ctrl-shift-space)
 keyboard: key(ctrl-/)
 open [<user.text>]:
     key(ctrl-k)
@@ -61,6 +67,7 @@ open [<user.text>]:
 open channel: key(ctrl-k)
 jump: key(ctrl-j)
 quit slack: key(ctrl-q)
+
 yes: "yes"
 yep: "yep"
 yeah: "yeah"
