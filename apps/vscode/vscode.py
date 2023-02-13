@@ -376,3 +376,6 @@ class UserActions:
         actions.edit.find(text)
         actions.sleep("100ms")
         actions.key("esc")
+
+    def foot_pedal_left():
+        actions.user.vscode("cursorless.toggleDecorations")
