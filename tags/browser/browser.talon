@@ -8,9 +8,6 @@ address copy | url copy | copy address | copy url:
 go home: browser.go_home()
 advance: browser.go_forward()
 retreat: browser.go_back()
-# key(f13): key(ctrl-d)
-# rango hints toggle
-key(f13): key(ctrl-shift-5)
 jab <digits>$: user.click_by_voice(digits, "")
 slam <digits>$: user.click_by_voice(digits, "t")
 voice hints off:

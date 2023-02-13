@@ -59,7 +59,6 @@ huddle toggle:
     key(ctrl-shift-h)
     speech.disable()
     user.engine_sleep()
-key(f13): key(ctrl-shift-space)
 keyboard: key(ctrl-/)
 open [<user.text>]:
     key(ctrl-k)

@@ -359,6 +359,4 @@ plate <user.intellij_templates>:
     insert(intellij_templates)
     key(enter)
 
-# key(f13): core.repeat_command(1)
-
 vim toggle: user.idea("action VimPluginToggle")

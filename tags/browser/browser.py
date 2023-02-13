@@ -28,3 +28,9 @@ class BrowserActions:
             for url in reversed(actions.win.title().split(" "))
         )
         return next((url for url in tokens if is_url(url)), "")
+
+@ctx.action_class("user")
+class UserActions:
+    def foot_pedal_left():
+        # rango hints toggle. shortcut has to be set in chrome extensions
+        actions.key("ctrl-shift-5")

@@ -44,3 +44,6 @@ class UserActions:
     # Files and Snippets
     def messaging_upload_file():
         actions.key("ctrl-u")
+
+    def foot_switch_left():
+        actions.key("ctrl-shift-space")
