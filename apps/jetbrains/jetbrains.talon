@@ -336,6 +336,7 @@ go camel right: user.camel_right()
 blacken: user.idea("action BLACKReformatCode")
 
 create new file: user.idea("action NewFile")
+create new class: user.idea("action NewClass")
 compare files: user.idea("action CompareTwoFiles")
 
 replace it: key(ctrl-r)

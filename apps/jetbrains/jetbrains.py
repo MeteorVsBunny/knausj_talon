@@ -383,6 +383,7 @@ ctx.lists["user.intellij_templates"] = {
     "else if": "ei",
     "not null": "inn",
     "for each": "foreach",
+    "for loop": "fori",
     "logger": "logger",
     "log debug": "logd",
     "log warn": "logw",
