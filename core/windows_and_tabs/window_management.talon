@@ -28,6 +28,7 @@ flip chrome: key(super-2)
 flip code: key(super-4)
 # flip intelli: key(super-7)
 flip outlook: key(super-9)
+flip slack: key(super-0)
 flip terminal: user.switcher_focus("m s")
 
 flip draft: user.switcher_focus("wordpad")
