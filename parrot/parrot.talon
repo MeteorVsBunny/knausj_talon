@@ -1,5 +1,5 @@
 parrot(cluck):
-    # app.notify("cluck")
+    app.notify("cluck")
     print("cluck")
     # user.mouse_toggle_zoom_mouse()
     # user.mouse_toggle_control_mouse()
@@ -7,6 +7,7 @@ parrot(cluck):
 
 parrot(loud_cluck):
     print("loud_cluck")
+    app.notify("loud_cluck")
 
 parrot(pop):
     print("pop")
@@ -15,6 +16,7 @@ parrot(pop):
 
 parrot(tut):
     print("tut")
+    app.notify("tut")
     # key(ctrl:down)
     # user.my_pop()
     # key(ctrl:up)
@@ -31,7 +33,7 @@ parrot(shh:stop):
     print("shh:stop")
     
 parrot(shh:repeat):
-    user.mouse_scroll_up()
+    # user.mouse_scroll_up()
 
 parrot(hiss):
     print("hiss")
@@ -40,14 +42,14 @@ parrot(hiss:stop):
     print("hiss:stop")
 
 parrot(hiss:repeat):
-    user.mouse_scroll_down()
+    # user.mouse_scroll_down()
 
 parrot(speech):
-    print("speech")
+    # print("speech")
 
 parrot(keyboard):
-    print("keyboard")
+    # print("keyboard")
 
 parrot(background):
-    print("background")
+    # print("background")
 
