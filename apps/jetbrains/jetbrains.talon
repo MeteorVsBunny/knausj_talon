@@ -50,6 +50,7 @@ slide down: key(ctrl-shift-down)
 #navigation
 tunnel: user.idea("action GotoDeclaration")
 go implementation: user.idea("action GotoImplementation")
+go super: user.idea("action GotoSuperMethod")
 references: user.idea("action FindUsages")
 go type: user.idea("action GotoTypeDeclaration")
 go test: user.idea("action GotoTest")
@@ -206,6 +207,7 @@ view messages: user.idea("action ActivateMessagesToolWindow")
 view maven: user.idea("action ActivateMavenToolWindow")
 view duplicates: user.idea("action ActivateDuplicatesToolWindow")
 view build: user.idea("action ActivateBuildToolWindow")
+view bookmarks: user.idea("action ActivateBookmarksToolWindow")
 view last: user.idea("action JumpToLastWindow")
 # Pin/dock/float
 toggle pinned: user.idea("action TogglePinnedMode")
@@ -327,10 +329,10 @@ replace next <user.text> [over]: user.idea("find next {text}, action EditorPaste
 select last <user.text> [over]: user.idea("find prev {text}")
 select next <user.text> [over]: user.idea("find next {text}")
 
-select camel left: user.extend_camel_left()
-select camel right: user.extend_camel_right()
-go camel left: user.camel_left()
-go camel right: user.camel_right()
+take cam left: user.extend_camel_left()
+take cam right: user.extend_camel_right()
+go cam left: user.camel_left()
+go cam right: user.camel_right()
 
 # requires plug-in: black-pycharm
 blacken: user.idea("action BLACKReformatCode")

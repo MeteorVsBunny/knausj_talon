@@ -392,6 +392,8 @@ ctx.lists["user.intellij_templates"] = {
     "system out": "sout",
     "add wrapper": "addwrapper",
     "add list": "addlist",
+    "test": "test",
+    "try": "trycatch",
 }
 
 
