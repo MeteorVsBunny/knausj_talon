@@ -66,6 +66,7 @@ open [<user.text>]:
 open channel: key(ctrl-k)
 jump: key(ctrl-j)
 quit slack: key(ctrl-q)
+edit last message: key(ctrl-up)
 
 yes: "yes"
 yep: "yep"
