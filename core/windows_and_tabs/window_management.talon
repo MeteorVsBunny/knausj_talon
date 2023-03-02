@@ -25,6 +25,7 @@ desktop: key(super-d)
 
 flip explore: key(super-1)
 flip chrome: key(super-2)
+flip web: key(super-2)
 flip code: key(super-4)
 # flip intelli: key(super-7)
 flip outlook: key(super-9)
@@ -51,7 +52,7 @@ draft retrieve:
     key(ctrl-a)
     key(ctrl-c)
     key(alt-tab)
-    sleep(350ms)
+    sleep(500ms)
     key(ctrl-v)
     
 captain: user.engine_mimic("start command mode")
