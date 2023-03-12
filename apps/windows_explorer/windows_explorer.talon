@@ -6,3 +6,4 @@ tag(): user.file_manager
 go app data: user.file_manager_open_directory("%AppData%")
 go program files: user.file_manager_open_directory("%programfiles%")
 address bar: key(alt-d)
+create new file: key(alt-h w up:3 enter)
