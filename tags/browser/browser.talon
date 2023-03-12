@@ -8,18 +8,18 @@ address copy | url copy | copy address | copy url:
 go home: browser.go_home()
 advance: browser.go_forward()
 retreat: browser.go_back()
-jab <digits>$: user.click_by_voice(digits, "")
-slam <digits>$: user.click_by_voice(digits, "t")
-voice hints off:
-    key(ctrl-shift-space)
-    sleep(50ms)
-    insert(":-")
-    key(enter)
-voice hints on:
-    key(ctrl-shift-space)
-    sleep(50ms)
-    insert(":+")
-    key(enter)
+# jab <digits>$: user.click_by_voice(digits, "")
+# slam <digits>$: user.click_by_voice(digits, "t")
+# voice hints off:
+#     key(ctrl-shift-space)
+#     sleep(50ms)
+#     insert(":-")
+#     key(enter)
+# voice hints on:
+#     key(ctrl-shift-space)
+#     sleep(50ms)
+#     insert(":+")
+#     key(enter)
 ready join:
     key(ctrl-d ctrl-e tab:9)
     user.engine_sleep()
