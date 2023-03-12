@@ -8,7 +8,7 @@ draft transfer:
     key(ctrl-a)
     key(ctrl-c)
     key(alt-tab)
-    sleep(350ms)
+    sleep(750ms)
     key(ctrl-v)
     mode.disable("dictation")
     mode.enable("command")
