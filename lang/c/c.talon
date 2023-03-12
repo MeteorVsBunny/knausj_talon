@@ -27,20 +27,20 @@ settings():
     #    user.use_stdint_datatypes = 1
 
 # NOTE: migrated from generic, as they were only used here, though once cpp support is added, perhaps these should be migrated to a tag together with the commands below
-state include: insert("#include ")
-state include system: user.insert_between("#include <", ">")
-state include local: user.insert_between('#include "', '"')
-state type deaf: insert("typedef ")
-state type deaf struct:
+lodge include: insert("#include ")
+lodge include system: user.insert_between("#include <", ">")
+lodge include local: user.insert_between('#include "', '"')
+lodge type deaf: insert("typedef ")
+lodge type deaf struct:
     insert("typedef struct")
     insert("{\n\n}")
     edit.up()
     key('tab')
 
 # XXX - create a preprocessor tag for these, as they will match cpp, etc
-state define: "#define "
-state (undefine | undeaf): "#undef "
-state if (define | deaf): "#ifdef "
+lodge define: "#define "
+lodge (undefine | undeaf): "#undef "
+lodge if (define | deaf): "#ifdef "
 [state] define <user.text>$:
     "#define {user.formatted_text(text, 'ALL_CAPS,SNAKE_CASE')}"
 [state] (undefine | undeaf) <user.text>$:
@@ -49,12 +49,12 @@ state if (define | deaf): "#ifdef "
     "#ifdef {user.formatted_text(text, 'ALL_CAPS,SNAKE_CASE')}"
 
 # XXX - preprocessor instead of pre?
-state pre if: "#if "
-state error: "#error "
-state pre else if: "#elif "
-state pre end: "#endif "
-state pragma: "#pragma "
-state default: "default:\nbreak;"
+lodge pre if: "#if "
+lodge error: "#error "
+lodge pre else if: "#elif "
+lodge pre end: "#endif "
+lodge pragma: "#pragma "
+lodge default: "default:\nbreak;"
 
 #control flow
 #best used with a push like command

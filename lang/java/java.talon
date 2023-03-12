@@ -23,7 +23,7 @@ settings():
     user.code_protected_variable_formatter = "PRIVATE_CAMEL_CASE"
     user.code_public_variable_formatter = "PRIVATE_CAMEL_CASE"
 
-state var: "var "
+lodge var: "var "
 
 # Types Commands
 boxed [type] {user.java_boxed_type}: insert(user.java_boxed_type + " ")
@@ -38,12 +38,12 @@ type {user.code_type} array:
     user.code_operator_subscript()
 
 [state] {user.java_modifier}: insert(user.java_modifier + " ")
-state this: insert("this")
-state throw: insert("throw ")
+lodge this: insert("this")
+lodge throw: insert("throw ")
 
-op array: user.code_operator_subscript()
+lodge array: user.code_operator_subscript()
 
-op new: insert("new ")
+lodge new: insert("new ")
 
 get: insert("get")
 set: insert("set")

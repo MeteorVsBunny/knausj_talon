@@ -23,16 +23,16 @@ settings():
     user.code_protected_variable_formatter = "PRIVATE_CAMEL_CASE"
     user.code_public_variable_formatter = "PRIVATE_CAMEL_CASE"
 
-state {user.scala_modifier}: insert("{user.scala_modifier} ")
+lodge {user.scala_modifier}: insert("{user.scala_modifier} ")
 
-state {user.scala_keyword}: insert("{scala_keyword} ")
+lodge {user.scala_keyword}: insert("{scala_keyword} ")
 
-op right arrow: " -> "
-op left arrow: " <- "
-op plus plus: " ++ "
-op subtype: " <: "
+lodge right arrow: " -> "
+lodge left arrow: " <- "
+lodge plus plus: " ++ "
+lodge subtype: " <: "
 
-state match: user.code_state_switch()
+lodge match: user.code_state_switch()
 
 block string:
     insert('""""""')

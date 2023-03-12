@@ -27,27 +27,27 @@ settings():
 
 (op | is) strict equal: " === "
 (op | is) strict not equal: " !== "
-op null else: " ?? "
+lodgenull else: " ?? "
 
-state const: "const "
+lodge const: "const "
 
-state let: "let "
+lodge let: "let "
 
-state var: "var "
+lodge var: "var "
 
-state export: "export "
+lodge export: "export "
 
-state async: "async "
+lodge async: "async "
 
-state await: "await "
+lodge await: "await "
 
 dot {user.code_common_member_function}:
     user.insert_between(".{code_common_member_function}(", ")")
 
-state map: app.notify('ERROR: Command deprecated; please use "dot map"')
-state filter: app.notify('ERROR: Command deprecated; please use "dot filter"')
-state reduce: app.notify('ERROR: Command deprecated; please use "dot reduce"')
+lodge map: app.notify('ERROR: Command deprecated; please use "dot map"')
+lodge filter: app.notify('ERROR: Command deprecated; please use "dot filter"')
+lodge reduce: app.notify('ERROR: Command deprecated; please use "dot reduce"')
 
-state spread: "..."
+lodge spread: "..."
 
 from import: user.insert_between(' from  "', '"')

@@ -31,15 +31,15 @@ settings():
 # rust-specific grammars
 
 ## for unsafe rust
-state unsafe: "unsafe "
+lodge unsafe: "unsafe "
 unsafe block: user.code_state_unsafe()
 
 ## rust centric struct and enum definitions
-state (struct | structure) <user.text>:
+lodge (struct | structure) <user.text>:
     insert("struct ")
     insert(user.formatted_text(text, "PUBLIC_CAMEL_CASE"))
 
-state enum <user.text>:
+lodge enum <user.text>:
     insert("enum ")
     insert(user.formatted_text(text, "PUBLIC_CAMEL_CASE"))
 
@@ -48,34 +48,34 @@ toggle use: user.code_toggle_libraries()
 ## Simple aliases
 borrow: "&"
 borrow mutable: "&mut "
-state (a sink | async | asynchronous): "async "
-state (pub | public): "pub "
-state (pub | public) crate: "pub(crate) "
-state (dyn | dynamic): "dyn "
-state constant: "const "
-state (funk | func | function): "fn "
-state (imp | implements): "impl "
-state let mute: "let mut "
-state let: "let "
-state (mute | mutable): "mut "
-state (mod | module): "mod "
-state ref (mute | mutable): "ref mut "
-state ref: "ref "
-state trait: "trait "
-state match: user.code_state_switch()
-state (some | sum): "Some"
-state static: "static "
+lodge (a sink | async | asynchronous): "async "
+lodge (pub | public): "pub "
+lodge (pub | public) crate: "pub(crate) "
+lodge (dyn | dynamic): "dyn "
+lodge constant: "const "
+lodge (funk | func | function): "fn "
+lodge (imp | implements): "impl "
+lodge let mute: "let mut "
+lodge let: "let "
+lodge (mute | mutable): "mut "
+lodge (mod | module): "mod "
+lodge ref (mute | mutable): "ref mut "
+lodge ref: "ref "
+lodge trait: "trait "
+lodge match: user.code_state_switch()
+lodge (some | sum): "Some"
+lodge static: "static "
 self taught: "self."
-state use: user.code_import()
+lodge use: user.code_import()
 
 use <user.code_libraries>:
     user.code_insert_library(code_libraries, "")
     key(; enter)
 
 ## specialist flow control
-state if let some: user.code_insert_if_let_some()
-state if let (ok | okay): user.code_insert_if_let_okay()
-state if let error: user.code_insert_if_let_error()
+lodge if let some: user.code_insert_if_let_some()
+lodge if let (ok | okay): user.code_insert_if_let_okay()
+lodge if let error: user.code_insert_if_let_error()
 
 ## rust centric synonyms
 is some: user.code_insert_is_not_null()

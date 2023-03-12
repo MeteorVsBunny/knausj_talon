@@ -28,13 +28,13 @@ settings():
 
 #python-specific grammars
 dunder in it: "__init__"
-state (def | deaf | deft): "def "
-state try: "try:\n"
-state except: "except "
-state raise: "raise "
+lodge (def | deaf | deft): "def "
+lodge try: "try:\n"
+lodge except: "except "
+lodge raise: "raise "
 self taught: "self."
 pie test: "pytest"
-state past: "pass"
+lodge past: "pass"
 
 [state] raise {user.python_exception}:
     user.insert_between("raise {python_exception}(", ")")

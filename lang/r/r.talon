@@ -34,7 +34,7 @@ library <user.code_libraries>:
     key(end)
     " %>%"
     key(enter)
-state na: insert("NA")
+lodge na: insert("NA")
 
 # TODO: migrate to function tag
 ^function define <user.text>$: user.code_private_function(text)
