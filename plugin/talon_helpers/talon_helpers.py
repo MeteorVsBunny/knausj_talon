@@ -157,3 +157,10 @@ class Actions:
         apps = ui.apps(name=app, background=False)
         for app in apps:
             pp.pprint(app.windows())
+
+
+    def talon_restart():
+        """Restart talon"""
+        talon_app = ui.apps(pid=os.getpid())[0]
+        os.startfile(talon_app.exe)
+        talon_app.quit()
