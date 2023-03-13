@@ -1,4 +1,14 @@
-from talon import actions, Module
+from talon import actions, Module, Context
+
+ctx_awake = Context()
+ctx_awake.matches = r"""
+not mode: sleep
+"""
+
+ctx_sleep = Context()
+ctx_sleep.matches = r"""
+mode: sleep
+"""
 
 mod = Module()
 
@@ -21,3 +31,15 @@ class MyEverywhereActions:
     def keyboard_repeat():
         ""
         actions.core.repeat_command(1)
+
+@ctx_awake.action_class("user")
+class UserActions:
+    def foot_pedal_right():
+        actions.speech.disable()
+        actions.user.engine_sleep()
+
+@ctx_sleep.action_class("user")
+class UserActions:
+    def foot_pedal_right():
+        actions.speech.enable()
+        actions.user.engine_wake()

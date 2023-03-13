@@ -6,6 +6,6 @@ settings():
     #enable pop click with 'control mouse' mode
     user.mouse_enable_pop_click = 1
 
-key(f14):
+parrot(loud_cluck):
     speech.enable()
     user.engine_wake()
