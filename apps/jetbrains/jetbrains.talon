@@ -333,6 +333,8 @@ take cam left: user.extend_camel_left()
 take cam right: user.extend_camel_right()
 go cam left: user.camel_left()
 go cam right: user.camel_right()
+chuck cam left: user.idea("action EditorDeleteToWordStartInDifferentHumpsMode")
+chuck cam right: user.idea("action EditorDeleteToWordEndInDifferentHumpsMode")
 
 # requires plug-in: black-pycharm
 blacken: user.idea("action BLACKReformatCode")
