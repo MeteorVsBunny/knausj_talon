@@ -2,13 +2,13 @@ pop toggle: user.toggle_pop()
 pop repeat: user.set_pop_repeat()
 pop mouse: user.set_pop_mouse()
 switch mouse control:
-    user.mouse_toggle_zoom_mouse(false)
-    user.mouse_toggle_control_mouse()
+    tracking.control_toggle(true)
+    tracking.control_zoom_toggle(false)
 switch mouse zoom:
-    user.mouse_toggle_control_mouse(false)
-    user.mouse_toggle_zoom_mouse()
-camera overlay: user.mouse_toggle_camera_overlay()
-run calibration: user.mouse_calibrate()
+    tracking.control_toggle(false)
+    tracking.control_zoom_toggle(true)
+camera overlay: tracking.control_debug_toggle()
+run calibration: tracking.calibrate()
 tick:
     mouse_click(0)
     # close the mouse grid if open
