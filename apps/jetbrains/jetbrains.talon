@@ -249,7 +249,7 @@ condition breakpoint: key(ctrl-shift-f8)
 toggle method breakpoint: user.idea("action ToggleMethodBreakpoint")
 run menu: user.idea("action ChooseRunConfiguration")
 run test: user.idea("action RunClass")
-#run last: user.idea("action Rerun")
+run last: user.idea("action Rerun")
 debug test: user.idea("action DebugClass")
 debug last: key(shift-f9)
 run project test:
@@ -365,3 +365,6 @@ plate <user.intellij_templates>:
     key(enter)
 
 vim toggle: user.idea("action VimPluginToggle")
+
+go block start: user.idea("action EditorCodeBlockStart")
+go block end: user.idea("action EditorCodeBlockEnd")
