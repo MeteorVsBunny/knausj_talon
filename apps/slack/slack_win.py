@@ -47,3 +47,9 @@ class UserActions:
 
     def foot_pedal_left():
         actions.key("ctrl-shift-space")
+
+    def keyboard_next():
+        actions.key("alt-shift-down")
+
+    def keyboard_prior():
+        actions.key("alt-shift-up")
