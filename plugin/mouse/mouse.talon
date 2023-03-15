@@ -1,6 +1,6 @@
-key(shift-f3):
-    user.mouse_toggle_zoom_mouse()
-    user.mouse_toggle_control_mouse()
+pop toggle: user.toggle_pop()
+pop repeat: user.set_pop_repeat()
+pop mouse: user.set_pop_mouse()
 mouse control:
     user.mouse_toggle_zoom_mouse(false)
     user.mouse_toggle_control_mouse()
