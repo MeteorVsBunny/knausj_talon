@@ -371,3 +371,4 @@ go block end: user.idea("action EditorCodeBlockEnd")
 
 # no action id
 jump to file: key(f4)
+jump to changes: user.idea("action Compare.SameVersion")

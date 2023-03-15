@@ -53,6 +53,7 @@ go (work|space) notes:
     key("enter")
 create new folder: user.vscode("explorer.newFolder")
 jump to file: user.vscode("git.openFile")
+jump to changes: user.vscode("git.openChange")
 
 # Sidebar
 view explore: user.vscode("workbench.view.explorer")
