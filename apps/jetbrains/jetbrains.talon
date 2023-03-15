@@ -368,3 +368,6 @@ vim toggle: user.idea("action VimPluginToggle")
 
 go block start: user.idea("action EditorCodeBlockStart")
 go block end: user.idea("action EditorCodeBlockEnd")
+
+# no action id
+jump to file: key(f4)
