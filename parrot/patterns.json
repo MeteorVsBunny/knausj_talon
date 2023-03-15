@@ -16,7 +16,7 @@
 		"sounds": ["cluck"],
 		"threshold": {
 			">power": 20,
-			">probability": 0.999
+			">probability": 0.99
 		},
 		"throttle": {
 			"cluck": 1,
