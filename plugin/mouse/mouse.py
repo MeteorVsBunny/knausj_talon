@@ -145,19 +145,23 @@ class Actions:
         else:
             eye_zoom_mouse.zoom_mouse.on_pop(not eye_zoom_mouse.zoom_mouse.enabled)
 
-    def toggle_pop():
+    def set_pop_control():
         """Toggles pop"""
-        my_toggle_pop()
+        global pop_mode
+        pop_mode = 2
+        actions.tracking.control_zoom_toggle(False)
 
     def set_pop_repeat():
         """Toggles pop"""
-        global enable_pop_repeat
-        enable_pop_repeat = 1
+        global pop_mode
+        pop_mode = 1
 
     def set_pop_mouse():
         """Toggles pop"""
-        global enable_pop_repeat
-        enable_pop_repeat = 0
+        global pop_mode
+        pop_mode = 0
+        actions.tracking.control_toggle(False)
+        actions.tracking.control_zoom_toggle(True)
 
     def mouse_cancel_zoom_mouse():
         """Cancel zoom mouse if pending"""
@@ -320,23 +324,25 @@ def my_pop(enabled):
     # print("my_pop")
     eye_zoom_mouse.zoom_mouse.on_pop(enabled)
 
-enable_pop_repeat = 0
+pop_mode = 0
 def toggleable_pop(active):
-    global enable_pop_repeat
-    if enable_pop_repeat >= 1:
+    global pop_mode
+    if pop_mode == 1:
         actions.core.repeat_command(1)
+    elif pop_mode == 2:
+        control_pop(active)
     else:
         on_pop(active)
 
-# noise.register("pop", on_pop)
-noise.register("pop", toggleable_pop)
-
-def my_toggle_pop():
-    global enable_pop_repeat
-    if enable_pop_repeat == 0:
-        enable_pop_repeat = 1
+def control_pop(active):
+    if eye_mouse.mouse.attached_tracker is not None:
+        ctrl.mouse_click(button=0, hold=16000)
+        actions.tracking.control_toggle(False)
     else:
-        enable_pop_repeat = 0
+        actions.tracking.control_toggle(True)
+        actions.tracking.control_zoom_toggle(False)
+
+noise.register("pop", toggleable_pop)
 
 def mouse_scroll(amount):
     def scroll():

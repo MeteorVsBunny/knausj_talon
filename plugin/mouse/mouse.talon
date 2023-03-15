@@ -1,6 +1,6 @@
-pop toggle: user.toggle_pop()
+pop control: user.set_pop_control()
 pop repeat: user.set_pop_repeat()
-pop mouse: user.set_pop_mouse()
+pop zoom: user.set_pop_mouse()
 switch mouse control:
     tracking.control_toggle(true)
     tracking.control_zoom_toggle(false)
