@@ -1,10 +1,10 @@
 pop toggle: user.toggle_pop()
 pop repeat: user.set_pop_repeat()
 pop mouse: user.set_pop_mouse()
-mouse control:
+switch mouse control:
     user.mouse_toggle_zoom_mouse(false)
     user.mouse_toggle_control_mouse()
-mouse zoom:
+switch mouse zoom:
     user.mouse_toggle_control_mouse(false)
     user.mouse_toggle_zoom_mouse()
 camera overlay: user.mouse_toggle_camera_overlay()
