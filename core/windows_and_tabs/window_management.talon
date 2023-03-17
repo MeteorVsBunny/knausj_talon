@@ -35,6 +35,7 @@ flip draft: user.switcher_focus("wordpad")
 flip full slack: key(super-9)
 flip slack: user.switcher_focus("slack")
 flip outlook: key(super-0)
+flip full terminal: key(super-8)
 flip terminal: user.switcher_focus("m s")
 
 draft new:
