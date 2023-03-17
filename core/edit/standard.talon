@@ -33,3 +33,8 @@ switch over caster:
     speech.disable()
 
 captain: user.engine_mimic("start command mode")
+
+toby stop:
+    key(super-d)
+    sleep(500ms)
+    key(t o b i i minus s t o p menu a)
