@@ -249,7 +249,7 @@ condition breakpoint: key(ctrl-shift-f8)
 toggle method breakpoint: user.idea("action ToggleMethodBreakpoint")
 run menu: user.idea("action ChooseRunConfiguration")
 run test: user.idea("action RunClass")
-run last: user.idea("action Rerun")
+run last test: user.idea("action Rerun")
 debug test: user.idea("action DebugClass")
 debug last: key(shift-f9)
 run project test:
@@ -371,4 +371,4 @@ go block end: user.idea("action EditorCodeBlockEnd")
 
 # no action id
 jump to file: key(f4)
-jump to changes: user.idea("action Compare.SameVersion")
+jump to diff: user.idea("action Compare.SameVersion")
