@@ -22,7 +22,7 @@ open resource: user.vscode("workbench.action.quickOpen")
 open [<user.text>]:
     user.vscode("workbench.action.quickOpen")
     insert(user.text or "")
-hints toggle: user.vscode("cursorless.toggleDecorations")
+hints (toggle|on|off): user.vscode("cursorless.toggleDecorations")
 snip: user.vscode("editor.action.deleteLines")
 slide up: user.vscode("editor.action.moveLinesUpAction")
 slide down: user.vscode("editor.action.moveLinesDownAction")
