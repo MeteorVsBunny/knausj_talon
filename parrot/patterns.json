@@ -1,89 +1,43 @@
 {
 	"cluck": {
-		"sounds": ["cluck"],
+		"sounds": ["cluck_full", "cluck_roof"],
 		"threshold": {
-			"<power": 19,
-			">power": 2,
+			"<power": 29,
+			">power": 5,
 			">probability": 0.99
 		},
 		"throttle": {
-			"cluck": 0.2,
-			"pop": 0.2,
-			"tut": 0.2
+			"cluck": 0.3,
+			"loud_cluck": 0.3,
+			"pop": 1
 		}
 	},
     "loud_cluck": {
-		"sounds": ["cluck"],
+		"sounds": ["cluck_full", "cluck_roof"],
 		"threshold": {
-			">power": 20,
+			">power": 30,
 			">probability": 0.99
 		},
 		"throttle": {
-			"cluck": 1,
-			"pop": 1,
-			"tut": 1
-		}
-	},
-    "tut": {
-		"sounds": ["tut"],
-		"threshold": {
-			">power": 2,
-			">probability": 0.999
+			"cluck": 0.3,
+			"loud_cluck": 0.3,
+			"pop": 1
 		}
 	},
     "pop": {
 		"sounds": ["pop"],
 		"threshold": {
-			">power": 0.5,
-			">probability": 0.98
+			">power": 1,
+			">probability": 0.99
 		},
 		"throttle": {
-			"cluck": 0.2,
-			"pop": 0.1,
-			"tut": 0.2
-		}
-	},
-    "shh": {
-		"sounds": ["shh"],
-		"threshold": {
-			">power": 1,
-			">probability": 0.5
-		},
-        "detect_after": 0.1,
-        "graceperiod": 0.3,
-        "grace_threshold": {
-            ">probability": 0.5,
-            ">power": 1
-        },
-        "throttle": {
-			"cluck": 0.5,
-			"pop": 0.5,
-			"hiss": 0.5,
-			"speech": 0.5
-		}
-	},
-    "hiss": {
-		"sounds": ["hiss"],
-		"threshold": {
-			">power": 1,
-			"<power": 25,
-			">probability": 0.7
-		},
-        "detect_after": 0.1,
-        "graceperiod": 0.2,
-        "grace_threshold": {
-            ">probability": 0.5,
-            ">power": 1
-        },
-        "throttle": {
-			"cluck": 0.5,
-			"pop": 0.5,
-			"shh": 0.5,
-			"speech": 0.5
+			"loud_cluck":0.2,
+			"cluck":0.2,
+			"pop": 0.1
 		}
 	},
     "background": {
-		"sounds": ["background", "keyboard"],
+		"sounds": ["background", "keyboard", "video", "eating"],
 		"threshold": {
 			">power": 1,
 			">probability": 0.9
@@ -91,8 +45,8 @@
         "detect_after": 0.05,
         "throttle": {
 			"cluck": 1,
-			"pop": 0.75,
-			"tut": 1
+			"loud_cluck": 1,
+			"pop": 0.75
 		}
 	},
     "speech": {
@@ -103,9 +57,9 @@
 		},
         "detect_after": 0.05,
         "throttle": {
-			"cluck": 1,
-			"pop": 0.75,
-			"tut": 1
+			"loud_cluck": 0.5,
+			"cluck": 0.5,
+			"pop": 0.75
 		}
 	}
 }
