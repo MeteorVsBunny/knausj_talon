@@ -6,4 +6,5 @@
 <number_small> tie: core.repeat_command(number_small - 1)
 (repeat that | twice): core.repeat_command(1)
 repeat that <number_small> [times]: core.repeat_command(number_small)
-^repeat phrase <number> times$: core.repeat_phrase(number-1)
+^repeat phrase: core.repeat_phrase(1)
+# ^repeat phrase <number> tie$: core.repeat_phrase(number-1)
