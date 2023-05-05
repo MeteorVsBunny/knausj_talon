@@ -44,6 +44,9 @@ lodge throw: insert("throw ")
 lodge array: user.code_operator_subscript()
 
 lodge new: insert("new ")
+lodge implements: insert(" implements ")
+lodge extends: insert(" extends ")
+lodge void: insert(" void ")
 
 get: insert("get")
 set: insert("set")
