@@ -38,7 +38,8 @@ refactor in line: user.idea("action Inline")
 refactor move: user.idea("action Move")
 rename: user.idea("action RenameElement")
 rename file: user.idea("action RenameFile")
-format code: user.idea("action ReformatCode")
+format code: user.idea("action ShowReformatFileDialog")
+# format code: user.idea("action ReformatCode")
 do imports: user.idea("action OptimizeImports")
 
 # Editing
@@ -49,6 +50,7 @@ slide down: key(ctrl-shift-down)
 
 #navigation
 tunnel: user.idea("action GotoDeclaration")
+go matching: user.idea("action EditorMatchBrace")
 go implementation: user.idea("action GotoImplementation")
 go super: user.idea("action GotoSuperMethod")
 references: user.idea("action FindUsages")
@@ -59,6 +61,10 @@ advance: user.idea("action Forward")
 last edit location: key(ctrl-shift-backspace)
 method next: user.idea("action MethodDown")
 method prior: user.idea("action MethodUp")
+method references:
+    key(end)
+    user.idea("action MethodUp")
+    user.idea("action FindUsages")
 
 # Search
 find (everywhere | all): user.idea("action SearchEverywhere")
@@ -88,6 +94,7 @@ surround [this] with <user.text> [over]:
     insert(text)
 # Making these longer to reduce collisions with real code dictation.
 insert generated:
+# generate:
     user.idea("action Generate")
 #todo plate
 insert template <user.text> [over]:
@@ -140,11 +147,11 @@ create sibling <user.text> [over]:
     user.idea("action NewElementSamePlace")
     sleep(500ms)
     insert(text)
-create file: user.idea("action NewElement")
-create file <user.text> [over]:
-    user.idea("action NewElement")
-    sleep(500ms)
-    insert(text)
+(create|generate) file: user.idea("action NewElement")
+# create file <user.text> [over]:
+#     user.idea("action NewElement")
+#     sleep(500ms)
+#     insert(text)
 # Task Management
 go task: user.idea("action tasks.goto")
 go browser task: user.idea("action tasks.open.in.browser")
@@ -209,6 +216,7 @@ view duplicates: user.idea("action ActivateDuplicatesToolWindow")
 view build: user.idea("action ActivateBuildToolWindow")
 view bookmarks: user.idea("action ActivateBookmarksToolWindow")
 view last: user.idea("action JumpToLastWindow")
+view close: user.idea("action HideActiveWindow")
 # Pin/dock/float
 toggle pinned: user.idea("action TogglePinnedMode")
 toggle docked: user.idea("action ToggleDockMode")
@@ -251,7 +259,7 @@ run menu: user.idea("action ChooseRunConfiguration")
 run test: user.idea("action RunClass")
 run last test: user.idea("action Rerun")
 debug test: user.idea("action DebugClass")
-debug last: key(shift-f9)
+debug last test: key(shift-f9)
 run project test:
     user.idea("action ActivateProjectToolWindow")
     key(ctrl-minus)
@@ -356,12 +364,14 @@ tomcat stop: key(ctrl-f2)
 
 copy folder name: user.copy_folder_name()
 
-fetch settings: key(ctrl-alt-s)
+(fetch|go) settings: key(ctrl-alt-s)
 
+plate todo: insert("// TODO ")
 plate <user.intellij_templates>:
     user.idea("action InsertLiveTemplate")
     # key(ctrl-j)
     insert(intellij_templates)
+    sleep(500ms)
     key(enter)
 
 vim toggle: user.idea("action VimPluginToggle")
@@ -370,5 +380,8 @@ go block start: user.idea("action EditorCodeBlockStart")
 go block end: user.idea("action EditorCodeBlockEnd")
 
 # no action id
-jump to file: key(f4)
-jump to diff: user.idea("action Compare.SameVersion")
+(jump to|go) file: key(f4)
+(jump to|go) diff: user.idea("action Compare.SameVersion")
+
+plain copy that: user.idea("action CopyAsPlainText")
+split move: user.idea("action MoveEditorToOppositeTabGroup")

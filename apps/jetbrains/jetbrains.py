@@ -264,6 +264,8 @@ class EditActions:
         # move the cursor to the first nonwhite space character of the line
         actions.user.idea("action EditorLineEnd")
         actions.user.idea("action EditorLineStart")
+    def save():
+        actions.user.idea("action SaveAll")
 
 
 @ctx.action_class("win")
@@ -342,8 +344,8 @@ class UserActions:
         actions.user.idea("action EditorAddCaretPerSelectedLine")
 
     # splits tag functions
-    # def split_window_right():
-    #     actions.user.idea("action OpenInRightSplit")
+    def split_window_right():
+        actions.user.idea("action MoveTabRight")
     # def split_window_left():
     # def split_window_down():
     # def split_window_up():
