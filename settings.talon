@@ -1,5 +1,10 @@
 -
 settings():
+    # minimum silence time (in seconds) before speech is cut off, default 0.3
+    # at 0.05 commands are getting separated
+    # May want to set to longer in dictation mode
+    # speech.timeout = 0.1
+
     # Adjust the scale of the imgui to my liking
     imgui.scale = 1.3
 
@@ -48,7 +53,7 @@ settings():
 
     # Uncomment the below to insert text longer than 10 characters (customizable) by
     # pasting from the clipboard. This is often faster than typing.
-    #user.paste_to_insert_threshold = 10
+    user.paste_to_insert_threshold = 10
 
     # Uncomment the below to enable context-sensitive dictation. This determines
     # how to format (capitalize, space) dictation-mode speech by selecting &
