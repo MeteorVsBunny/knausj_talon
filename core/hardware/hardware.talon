@@ -6,6 +6,10 @@ key(f14): user.foot_pedal_right()
 
 # sidewinder
 key(pause): core.repeat_command(1)
+#key(altgr:down): key(alt:down)
+#key(altgr:up): key(alt:up)
+key(menu:down): key(super:down)
+key(menu:up): key(super:up)
 
 # ergodox
 key(f17): user.keyboard_prior()
