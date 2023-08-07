@@ -312,7 +312,7 @@ def show_cursor_helper(show):
         ctrl.cursor_visible(show)
 
 
-@ctx.action("user.noise_trigger_pop")
+# @ctx.action("user.noise_trigger_pop")
 def on_pop():
     if setting_mouse_enable_pop_stops_scroll.get() >= 1 and (gaze_job or scroll_job):
         # Allow pop to stop scroll
@@ -343,6 +343,10 @@ def on_pop():
 def my_pop(enabled):
     # print("my_pop")
     eye_zoom_mouse.zoom_mouse.on_pop(enabled)
+
+@ctx.action("user.noise_trigger_pop")
+def pop_wrapper():
+    toggleable_pop(True)
 
 pop_mode = 2
 def toggleable_pop(active):
