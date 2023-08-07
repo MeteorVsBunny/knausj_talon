@@ -418,8 +418,25 @@ def fetch_file(file_name):
     actions.sleep("500ms")
     actions.key("enter")
 
+def fetch_appended_file(file_name):
+    actions.user.idea("action GotoFile")
+    # actions.sleep("500ms")
+    actions.key("right")
+    actions.insert(file_name)
+    actions.sleep("500ms")
+    actions.key("enter")
+
 def run_file(file_name):
-    actions.key("alt-shift-f9")
+    actions.key("alt-shift-f10") # run
+    # actions.key("alt-shift-f9") # debug
+    # actions.sleep("500ms")
+    actions.insert(file_name)
+    actions.key("enter")
+
+def debug_file(file_name):
+    # actions.key("alt-shift-f10") # run
+    actions.key("alt-shift-f9") # debug
+    # actions.sleep("500ms")
     actions.insert(file_name)
     actions.key("enter")
 
@@ -431,6 +448,13 @@ class MyActions:
     def fetch_file(file_name: str):
         ""
         fetch_file(file_name)
+
+    def fetch_appended_file(file_name: str):
+        ""
+        fetch_appended_file(file_name)
     def run_file(file_name: str):
         ""
         run_file(file_name)
+    def debug_file(file_name: str):
+        ""
+        debug_file(file_name)
