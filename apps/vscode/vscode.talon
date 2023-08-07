@@ -8,7 +8,7 @@ tag(): user.snippets
 tag(): user.splits
 tag(): user.tabs
 
-settings(): speech.engine = 'wav2letter'
+settings(): speech.engine = 'wav2letter-conformer'
 
 window reload: user.vscode("workbench.action.reloadWindow")
 window close: user.vscode("workbench.action.closeWindow")
