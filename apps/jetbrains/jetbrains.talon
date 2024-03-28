@@ -172,10 +172,12 @@ git (view | show | list) (requests | request):
     user.idea("action Github.View.Pull.Request")
 git (annotate | blame): user.idea("action Annotate")
 git menu: user.idea("action Vcs.QuickListPopupAction")
-git branches: key(ctrl-shift-`)
+git branches|git branch list: key(ctrl-shift-`)
 git stash push: user.idea("action Git.Stash")
 git stash apply: user.idea("action Git.Unstash")
 git fetch: user.idea("action Git.Fetch")
+# git add: user.idea("action ChangesView.AddUnversioned")
+git add: key(ctrl-alt-a)
 #git branches: user.idea("action Branches...")
 show history: user.idea("action ShowHistory")
 rollback: key(ctrl-alt-z)
@@ -319,6 +321,10 @@ refactor <number> until <number>:
     user.select_range(number_1, number_2)
     user.idea("action Refactorings.QuickListPopupAction")
 bring row <number>: user.line_clone(number)
+# move row <number>:
+    # user.select_range(number, number)
+    # user.idea("action EditorCut")
+    # retreat does not work
 
 #find/replace
 clear last <user.text> [over]: user.idea("find prev {text}, action EditorBackSpace")
