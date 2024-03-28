@@ -40,6 +40,7 @@ type {user.code_type} array:
 [state] {user.java_modifier}: insert(user.java_modifier + " ")
 lodge this: insert("this")
 lodge throw: insert("throw ")
+lodge super: insert("super")
 
 lodge array: user.code_operator_subscript()
 
