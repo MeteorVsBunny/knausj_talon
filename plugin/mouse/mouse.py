@@ -157,6 +157,14 @@ class Actions:
         pop_mode = 2
         actions.tracking.control_zoom_toggle(False)
 
+    def set_pop_control_on():
+        """Toggles pop"""
+        global pop_mode
+        pop_mode = 3
+        actions.tracking.control_gaze_toggle(True)
+        actions.tracking.control_head_toggle(True)
+        actions.tracking.control_zoom_toggle(False)
+
     def set_pop_repeat():
         """Toggles pop"""
         global pop_mode
@@ -355,6 +363,8 @@ def toggleable_pop(active):
         actions.core.repeat_command(1)
     elif pop_mode == 2:
         control_pop(active)
+    elif pop_mode == 3:
+        ctrl.mouse_click(button=0, hold=16000)
     else:
         on_pop(active)
 

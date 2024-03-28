@@ -1,4 +1,5 @@
 pop control: user.set_pop_control()
+pop control on: user.set_pop_control_on()
 pop repeat: user.set_pop_repeat()
 pop zoom: user.set_pop_mouse()
 switch mouse control:
