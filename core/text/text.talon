@@ -5,10 +5,20 @@ phrase <user.text>$:
 phrase <user.text> brunt:
     user.add_phrase_to_history(text)
     insert(text)
+phrase <user.text> ace:
+    user.add_phrase_to_history(text)
+    insert(text)
+    insert(" ")
 {user.prose_formatter} <user.prose>$: user.insert_formatted(prose, prose_formatter)
 {user.prose_formatter} <user.prose> brunt: user.insert_formatted(prose, prose_formatter)
+{user.prose_formatter} <user.prose> ace:
+    user.insert_formatted(prose, prose_formatter)
+    insert(" ")
 <user.format_text>+$: user.insert_many(format_text_list)
 <user.format_text>+ brunt: user.insert_many(format_text_list)
+<user.format_text>+ ace:
+    user.insert_many(format_text_list)
+    insert(" ")
 <user.formatters> that: user.formatters_reformat_selection(user.formatters)
 word <user.word>:
     user.add_phrase_to_history(word)

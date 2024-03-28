@@ -7,7 +7,7 @@ mode: dictation
 # Everything here should call `user.dictation_insert()` instead of `insert()`, to correctly auto-capitalize/auto-space.
 # if conformer
 # <user.raw_prose>: user.dictation_insert(raw_prose)
-cap: user.dictation_format_cap()
+#cap: user.dictation_format_cap()
 # Hyphenated variants are for Dragon.
 (no cap | no-caps): user.dictation_format_no_cap()
 (no space | no-space): user.dictation_format_no_space()
