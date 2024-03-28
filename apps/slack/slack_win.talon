@@ -69,14 +69,14 @@ jump: key(ctrl-j)
 quit slack: key(ctrl-q)
 edit last message: key(ctrl-up)
 
-yes: "yes"
-yep: "yep"
-yeah: "yeah"
-hi: "hi"
-okay: "okay"
-no: "no"
-thanks: "thanks"
-done: "done"
+yes: "yes "
+yep: "yep "
+yeah: "yeah "
+hi: "hi "
+okay: "ok "
+no: "no "
+thanks: "thanks "
+done: "done "
 
 # DEPRECATED
 (move | next) focus:
