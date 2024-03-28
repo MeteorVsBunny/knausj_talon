@@ -196,7 +196,7 @@ symbol_key_words = {
     "prekris": "(",
     "curly": "{",
     "right curly": "}",
-    "r curly": "}",
+    "R curly": "}",
     # "brace": "{",
     # "l brace": "{",
     # "left brace": "{",
