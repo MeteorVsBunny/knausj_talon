@@ -29,6 +29,8 @@ shift orbit: key(ctrl-shift-home)
 
 take tail: key(shift-end)
 take head: key(shift-home)
+copy tail: key(shift-end ctrl-c)
+copy head: key(shift-home ctrl-c)
 
 chuck head: key(shift-home delete)
 chuck tail: key(shift-end delete)
