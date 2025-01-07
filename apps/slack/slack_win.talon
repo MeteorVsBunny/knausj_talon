@@ -94,3 +94,11 @@ done: "done "
 (previous | last) (element | bit):
     app.notify("please use the voice command 'element last' instead of 'last element'")
     key(shift-tab)
+
+
+vertical link:
+    mouse_move(-358, 1926)
+    mouse_click(0)
+horizontal link:
+    mouse_move(-915, 1205)
+    mouse_click(0)
