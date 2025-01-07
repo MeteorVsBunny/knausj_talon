@@ -1,5 +1,9 @@
 app: jetbrains
 -
+settings():
+    key_hold = 25.0
+    # key_wait = 16.0
+
 tag(): user.line_commands
 tag(): user.multiple_cursors
 tag(): user.splits
@@ -65,7 +69,18 @@ method references:
     key(end)
     user.idea("action MethodUp")
     user.idea("action FindUsages")
-
+clone method:
+    key(down)
+    user.idea("action MethodUp")
+    user.idea("action EditorSelectWord")
+    user.idea("action EditorSelectWord")
+    user.idea("action EditorSelectWord")
+    user.idea("action EditorDuplicate")
+    key(escape)
+    user.idea("action MethodUp")
+    key(up enter)
+    user.idea("action MethodDown")
+    
 # Search
 find (everywhere | all): user.idea("action SearchEverywhere")
 find (everywhere | all) <user.text> [over]:
@@ -73,10 +88,16 @@ find (everywhere | all) <user.text> [over]:
     sleep(500ms)
     insert(text)
 (search | find) class: user.idea("action GotoClass")
-open resource: user.idea("action GotoFile")
-open <user.text>:
+[open] resource: user.idea("action GotoFile")
+resource <user.text>:
+    user.idea("action GotoFile")
+    insert(text)
+open [<user.text>]:
     user.idea("action GotoClass")
-    user.insert_formatted(text, "CAPITALIZE_ALL_WORDS,NO_SPACES")
+    user.insert_formatted(user.text or "", "CAPITALIZE_ALL_WORDS,NO_SPACES")
+# open [<user.text>]:
+    # user.idea("action GotoClass")
+    # insert(user.text or "")
 search it: user.idea("action FindInPath")
 (search | find) symbol: user.idea("action GotoSymbol")
 (search | find) symbol <user.text>$:
@@ -181,6 +202,7 @@ git add: key(ctrl-alt-a)
 #git branches: user.idea("action Branches...")
 show history: user.idea("action ShowHistory")
 rollback: key(ctrl-alt-z)
+file rollback: key(menu down down down enter)
 
 # Tool windows:
 # Toggling various tool windows
@@ -199,7 +221,7 @@ view stack:
 #     key(tab)
 view explore: user.idea("action ActivateProjectToolWindow")
 view problems: user.idea("action ActivateProblemsViewToolWindow")
-view search: user.idea("action ActivateFindToolWindow")
+view (search|find): user.idea("action ActivateFindToolWindow")
 view run: user.idea("action ActivateRunToolWindow")
 view debug: user.idea("action ActivateDebugToolWindow")
 view events: user.idea("action ActivateEventLogToolWindow")
@@ -260,12 +282,15 @@ condition breakpoint: key(ctrl-shift-f8)
 toggle method breakpoint: user.idea("action ToggleMethodBreakpoint")
 mute breakpoints: user.idea("action XDebugger.MuteBreakpoints")
 run menu: user.idea("action ChooseRunConfiguration")
-run test: user.idea("action RunClass")
+# run test: user.idea("action RunClass")
+# run test: key(ctrl-shift-f10)
+run test: key(f1)
 run last test: user.idea("action Rerun")
-debug test: user.idea("action DebugClass")
+# debug test: user.idea("action DebugClass")
+debug test: key(f10)
 debug last test: key(shift-f9)
 run project test:
-    user.idea("action ActivateProjectToolWindow")
+    user.idea("action ActifateProjectToolWindow")
     sleep(100ms)
     key(ctrl-minus)
     sleep(100ms)
@@ -361,6 +386,7 @@ blacken: user.idea("action BLACKReformatCode")
 create new file: user.idea("action NewFile")
 create new class: user.idea("action NewClass")
 compare files: user.idea("action CompareTwoFiles")
+generate: user.idea("action Generate")
 
 replace it: key(ctrl-r)
 
@@ -370,7 +396,7 @@ tab actions: key(alt-w t)
 tomcat publish:
     # key(ctrl-f10)
     user.idea("action UpdateRunningApplication")
-tomcat boot: user.debug_file("tomcat")
+tomcat (start|boot): user.debug_file("tomcat")
 tomcat stop: key(ctrl-f2)
 
 copy folder name: user.copy_folder_name()
@@ -396,3 +422,17 @@ go block end: user.idea("action EditorCodeBlockEnd")
 
 plain copy that: user.idea("action CopyAsPlainText")
 split move: user.idea("action MoveEditorToOppositeTabGroup")
+
+take class name: key(ctrl-home alt-shift-down ctrl-w)
+
+view log:
+    mouse_move(2719, 967)
+    # mouse_move(3893, 909)
+    # right click to avoid clicking links
+    mouse_click(1)
+    key(escape)
+
+empty [tomcat] log:
+    mouse_move(2719, 967)
+    mouse_click(1)
+    key(up enter escape)

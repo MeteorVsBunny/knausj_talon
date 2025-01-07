@@ -427,15 +427,17 @@ def fetch_appended_file(file_name):
     actions.key("enter")
 
 def run_file(file_name):
-    actions.key("alt-shift-f10") # run
+    actions.user.idea("action ChooseRunConfiguration")
+    # actions.key("alt-shift-f10") # run
     # actions.key("alt-shift-f9") # debug
     # actions.sleep("500ms")
     actions.insert(file_name)
     actions.key("enter")
 
 def debug_file(file_name):
+    actions.user.idea("action ChooseDebugConfiguration")
     # actions.key("alt-shift-f10") # run
-    actions.key("alt-shift-f9") # debug
+    # actions.key("alt-shift-f9") # debug
     # actions.sleep("500ms")
     actions.insert(file_name)
     actions.key("enter")
