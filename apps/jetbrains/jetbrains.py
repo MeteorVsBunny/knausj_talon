@@ -33,6 +33,7 @@ port_mapping = {
     "google-android-studio": 8652,
     "idea64.exe": 8653,
     "IntelliJ IDEA": 8653,
+    "IntelliJ IDEA Community Edition": 8654,
     "jetbrains-appcode": 8655,
     "jetbrains-clion": 8657,
     "jetbrains-datagrip": 8664,
@@ -61,16 +62,20 @@ port_mapping = {
 
 def _get_nonce(port, file_prefix):
     file_name = file_prefix + str(port)
+    tmp_file = ""
+    home_file = ""
     try:
-        with open(os.path.join(tempfile.gettempdir(), file_name)) as fh:
+        tmp_file = os.path.join(tempfile.gettempdir(), file_name)
+        with open(tmp_file) as fh:
             return fh.read()
     except FileNotFoundError as e:
         try:
             home = str(Path.home())
-            with open(os.path.join(home, file_name)) as fh:
+            home_file = os.path.join(home, file_name)
+            with open(home_file) as fh:
                 return fh.read()
         except FileNotFoundError as eb:
-            print(f"Could not find {file_name} in tmp or home")
+            print(f"Could not find {file_name} in tmp {tmp_file} or home {home_file}")
             return None
     except OSError as e:
         print(e)
@@ -82,6 +87,7 @@ def send_idea_command(cmd):
     active_app = ui.active_app()
     bundle = active_app.bundle or active_app.name
     port = port_mapping.get(bundle, None)
+    print(f"bundle {bundle} port {port}")
     nonce = _get_nonce(port, ".vcidea_") or _get_nonce(port, "vcidea_")
     proxies = {"http": None, "https": None}
     print(f"sending {bundle} {port} {nonce}")
