@@ -27,8 +27,8 @@
     "pop": {
 		"sounds": ["pop"],
 		"threshold": {
-			">power": 1,
-			">probability": 0.99
+			">power": 0.25,
+			">probability": 0.85
 		},
 		"throttle": {
 			"loud_cluck":0.2,
