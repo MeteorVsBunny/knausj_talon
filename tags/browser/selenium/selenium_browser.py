@@ -68,7 +68,7 @@ def switch_to_active_tab():
 
 def click(by, events):
     switch_to_active_tab()
-    element = driver.find_element(self.by, events)
+    element = driver.find_element(by, events)
     print(element.id)
     print(element.text)
     print(element.get_property("href"))
@@ -76,8 +76,9 @@ def click(by, events):
     # element.send_keys(Keys.RETURN)
 
 def submit(by, events):
+    print("submit")
     switch_to_active_tab()
-    element = driver.find_element(self.by, events)
+    element = driver.find_element(by, events)
     print(element.id)
     print(element.text)
     print(element.get_property("href"))
@@ -85,8 +86,11 @@ def submit(by, events):
     element.send_keys(Keys.RETURN)
 
 def new_tab():
+    actions.sleep("250ms")
     # tab to move focus from address bar sometimes
     actions.key("ctrl-t tab")
+    # actions.key("ctrl-t")
+    actions.sleep("250ms")
     switch_to_active_tab()
 
 mod = Module()
