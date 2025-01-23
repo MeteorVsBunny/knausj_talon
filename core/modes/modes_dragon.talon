@@ -15,6 +15,11 @@ speech.engine: dragon
 ^talon sleep [<phrase>]$: speech.disable()
 ^talon wake [<phrase>]$: speech.enable()
 
+^(hello|drowse) [<phrase>]$:
+    speech.disable()
+    # user.engine_sleep()
+    user.dragon_engine_sleep()
+
 ^sleep all [<phrase>]$:
     user.switcher_hide_running()
     user.history_disable()

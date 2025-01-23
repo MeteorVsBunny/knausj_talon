@@ -51,78 +51,6 @@ class Actions:
         if settings.get("user.mouse_wake_hides_cursor"):
             actions.user.mouse_cursor_hide()
 
-    def mouse_calibrate():
-        """Start calibration"""
-        eye_mouse.calib_start()
-
-    def mouse_toggle_control_mouse(enabled: bool = None):
-        """Toggles control mouse. Pass in a bool to enable it, otherwise toggle the current state"""
-        if enabled is not None:
-            toggle_control(enabled)
-        else:
-            toggle_control(not config.control_mouse)
-
-    def mouse_toggle_camera_overlay():
-        """Toggles camera overlay"""
-        toggle_camera_overlay(not config.show_camera)
-
-    def mouse_toggle_zoom_mouse(enabled: bool = None):
-        """Toggles zoom mouse"""
-        if enabled is not None:
-            eye_zoom_mouse.toggle_zoom_mouse(enabled)
-        else:
-            eye_zoom_mouse.toggle_zoom_mouse(not eye_zoom_mouse.zoom_mouse.enabled)
-
-    def do_zoom_mouse(enabled: bool = True):
-        """Clicks zoom mouse"""
-        if enabled is not None:
-            eye_zoom_mouse.zoom_mouse.on_pop(enabled)
-        else:
-            eye_zoom_mouse.zoom_mouse.on_pop(not eye_zoom_mouse.zoom_mouse.enabled)
-
-    def toggleable_pop():
-        """pop"""
-        toggleable_pop(True)
-
-    def set_pop_control():
-        """Toggles pop"""
-        global pop_mode
-        pop_mode = 2
-        actions.tracking.control_zoom_toggle(False)
-
-    def set_pop_control_on():
-        """Toggles pop"""
-        global pop_mode
-        pop_mode = 3
-        actions.tracking.control_gaze_toggle(True)
-        actions.tracking.control_head_toggle(True)
-        actions.tracking.control_zoom_toggle(False)
-
-    def set_pop_repeat():
-        """Toggles pop"""
-        global pop_mode
-        pop_mode = 1
-
-    def set_pop_mouse():
-        """Toggles pop"""
-        global pop_mode
-        pop_mode = 0
-        actions.tracking.control_toggle(False)
-        actions.tracking.control_zoom_toggle(True)
-
-    def mouse_cancel_zoom_mouse():
-        """Cancel zoom mouse if pending"""
-        if (
-            eye_zoom_mouse.zoom_mouse.enabled
-            and eye_zoom_mouse.zoom_mouse.state != eye_zoom_mouse.STATE_IDLE
-        ):
-            eye_zoom_mouse.zoom_mouse.cancel()
-
-    def mouse_trigger_zoom_mouse():
-        """Trigger zoom mouse if enabled"""
-        if eye_zoom_mouse.zoom_mouse.enabled:
-            eye_zoom_mouse.zoom_mouse.on_pop(eye_zoom_mouse.zoom_mouse.state)
-
     def mouse_drag(button: int):
         """Press and hold/release a specific mouse button for dragging"""
         # Clear any existing drags
@@ -167,9 +95,11 @@ class Actions:
         rect = ui.active_window().rect
         actions.mouse_move(rect.center.x, rect.center.y)
 
+gaze_head_on = 0
 
 @ctx.action_class("user")
 class UserActions:
+
     def noise_trigger_pop():
         dont_click = False
 
@@ -185,23 +115,35 @@ class UserActions:
 
         if dont_click:
             return
+        
+        global gaze_head_on
+        if gaze_head_on == 1:
+            gaze_head_on = 0
+            ctrl.mouse_click(button=0, hold=16000)
+            actions.tracking.control_gaze_toggle(False)
+            actions.tracking.control_head_toggle(False)
+        else:
+            gaze_head_on = 1
+            actions.tracking.control_gaze_toggle(True)
+            actions.tracking.control_head_toggle(True)
+            actions.tracking.control_zoom_toggle(False)
 
         # Otherwise respect the mouse_enable_pop_click setting
-        setting_val = settings.get("user.mouse_enable_pop_click")
+        # setting_val = settings.get("user.mouse_enable_pop_click")
 
-        is_using_eye_tracker = (
-            actions.tracking.control_zoom_enabled()
-            or actions.tracking.control_enabled()
-            or actions.tracking.control1_enabled()
-        )
+        # is_using_eye_tracker = (
+        #     actions.tracking.control_zoom_enabled()
+        #     or actions.tracking.control_enabled()
+        #     or actions.tracking.control1_enabled()
+        # )
 
-        should_click = (
-            setting_val == 2 and not actions.tracking.control_zoom_enabled()
-        ) or (
-            setting_val == 1
-            and is_using_eye_tracker
-            and not actions.tracking.control_zoom_enabled()
-        )
+        # should_click = (
+        #     setting_val == 2 and not actions.tracking.control_zoom_enabled()
+        # ) or (
+        #     setting_val == 1
+        #     and is_using_eye_tracker
+        #     and not actions.tracking.control_zoom_enabled()
+        # )
 
-        if should_click:
-            ctrl.mouse_click(button=0, hold=16000)
+        # if should_click:
+        #     ctrl.mouse_click(button=0, hold=16000)

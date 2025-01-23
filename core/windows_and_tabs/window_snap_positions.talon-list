@@ -42,3 +42,6 @@ bottom center small: BOTTOM_CENTER_SMALL
 center: CENTER
 full: FULL
 fullscreen: FULLSCREEN
+middle: MIDDLE
+mid: MIDDLE
+wide: WIDE

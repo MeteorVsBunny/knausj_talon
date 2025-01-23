@@ -36,10 +36,10 @@ class MyEverywhereActions:
 class UserActions:
     def foot_pedal_right():
         actions.speech.disable()
-        actions.user.engine_sleep()
+        # actions.user.dragon_engine_sleep()
 
 @ctx_sleep.action_class("user")
 class UserActions:
     def foot_pedal_right():
         actions.speech.enable()
-        actions.user.engine_wake()
+        # actions.user.dragon_engine_sleep()

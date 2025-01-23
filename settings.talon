@@ -1,5 +1,6 @@
 settings():
-    # minimum silence time (in seconds) before speech is cut off, default 0.3
+    # Uncomment to set the speech timeout. This is the amount of time after you stop
+    # speaking until Talon starts processing the spoken audio. Default is 0.3s.
     # at 0.05 commands are getting separated
     # May want to set to longer in dictation mode
     # speech.timeout = 0.1
@@ -7,12 +8,8 @@ settings():
     # Adjust the scale of the imgui
     imgui.scale = 1.3
 
-    # Uncomment to set the speech timeout. This is the amount of time after you stop
-    # speaking until Talon starts processing the spoken audio. Default is 0.3s.
-    # speech.timeout = 0.3
-
     # Uncomment to enable dark mode for talon help menus
-    # imgui.dark_mode = true
+    imgui.dark_mode = true
 
     # If `true`, automatically show the picker GUI when the file manager has focus
     user.file_manager_auto_show_pickers = false

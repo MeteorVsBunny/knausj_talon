@@ -122,6 +122,10 @@ copy word right: user.copy_word_right()
 #     edit.extend_down()
 #     edit.copy()
 
+stoosh: key(ctrl-c)
+scissor: key(ctrl-x)
+spark: key(ctrl-v)
+
 # Cut
 cut that: edit.cut()
 cut word left: user.cut_word_left()
@@ -172,3 +176,20 @@ file save: edit.save()
 file save all: edit.save_all()
 
 [go] line mid: user.line_middle()
+
+
+tell sink: edit.line_insert_down()
+earthquake: key(ctrl-enter)
+
+switch over caster:
+    key(super-d)
+    sleep(1s)
+    key(c a s t e r enter)
+    speech.disable()
+
+captain: user.engine_mimic("start command mode")
+
+toby stop:
+    key(super-d)
+    sleep(500ms)
+    key(t o b i i minus s t o p menu a)
