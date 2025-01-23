@@ -5,6 +5,7 @@ tag(): user.code_operators_bitwise
 
 # assignment
 lodge assign: user.code_operator_assignment()
+lodge or assign: user.code_or_operator_assignment()
 
 # combined computation and assignment
 lodge (minus | subtract) equals: user.code_operator_subtraction_assignment()

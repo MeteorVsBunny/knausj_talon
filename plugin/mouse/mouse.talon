@@ -8,9 +8,12 @@ switch mouse control:
 switch mouse zoom:
     tracking.control_toggle(false)
     tracking.control_zoom_toggle(true)
+control off: user.mouse_sleep()
 camera overlay: tracking.control_debug_toggle()
 run calibration: tracking.calibrate()
 tick:
+    # close zoom if open
+    tracking.zoom_cancel()
     mouse_click(0)
     # close the mouse grid if open
     user.grid_close()
@@ -19,11 +22,15 @@ tick:
     user.mouse_drag_end()
 
 psychic:
+    # close zoom if open
+    tracking.zoom_cancel()
     mouse_click(1)
     # close the mouse grid if open
     user.grid_close()
 
 mid click:
+    # close zoom if open
+    tracking.zoom_cancel()
     mouse_click(2)
     # close the mouse grid
     user.grid_close()
@@ -36,33 +43,45 @@ mid click:
 #shift
 #super = windows key
 <user.modifiers> (touch | tick):
+    # close zoom if open
+    tracking.zoom_cancel()
     key("{modifiers}:down")
     mouse_click(0)
     key("{modifiers}:up")
     # close the mouse grid
     user.grid_close()
 <user.modifiers> righty:
+    # close zoom if open
+    tracking.zoom_cancel()
     key("{modifiers}:down")
     mouse_click(1)
     key("{modifiers}:up")
     # close the mouse grid
     user.grid_close()
 dub click:
+    # close zoom if open
+    tracking.zoom_cancel()
     mouse_click()
     mouse_click()
     # close the mouse grid
     user.grid_close()
 (trip click | trip lick):
+    # close zoom if open
+    tracking.zoom_cancel()
     mouse_click()
     mouse_click()
     mouse_click()
     # close the mouse grid
     user.grid_close()
 squat:
+    # close zoom if open
+    tracking.zoom_cancel()
     user.mouse_drag(0)
     # close the mouse grid
     user.grid_close()
 right drag | righty drag:
+    # close zoom if open
+    tracking.zoom_cancel()
     user.mouse_drag(1)
     # close the mouse grid
     user.grid_close()
@@ -119,3 +138,7 @@ copy mouse position: user.copy_mouse_position()
 curse no:
     # Command added 2021-12-13, can remove after 2022-06-01
     app.notify("Please activate the user.mouse_cursor_commands_enable tag to enable this command")
+
+# To scroll with a hiss sound, set mouse_enable_hiss_scroll to true in settings.talon
+mouse hiss up: user.hiss_scroll_up()
+mouse hiss down: user.hiss_scroll_down()

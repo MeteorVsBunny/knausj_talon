@@ -20,6 +20,7 @@ lodge less [than] or equal: user.code_operator_less_than_or_equal_to()
 # logical operators
 lodge and: user.code_operator_and()
 lodge or: user.code_operator_or()
+lodge not: user.code_operator_not()
 
 # set operators
 lodge in: user.code_operator_in()
