@@ -20,6 +20,10 @@ scroll down: edit.page_down()
 # go left, go left left down, go 5 left 2 down
 # go word left, go 2 words right
 go <user.navigation_step>+: user.perform_navigation_steps(navigation_step_list)
+up: key(up)
+down: key(down)
+left: key(left)
+right: key(right)
 fly left: edit.word_left()
 fly right: edit.word_right()
 
@@ -168,8 +172,8 @@ padding: user.insert_between(" ", " ")
     insert(" ")
 
 # Undo/redo
-undo that: edit.undo()
-redo that: edit.redo()
+undo: edit.undo()
+redo: edit.redo()
 
 # Save
 file save: edit.save()
@@ -186,8 +190,6 @@ switch over caster:
     sleep(1s)
     key(c a s t e r enter)
     speech.disable()
-
-captain: user.engine_mimic("start command mode")
 
 toby stop:
     key(super-d)

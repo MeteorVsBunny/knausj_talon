@@ -67,7 +67,11 @@ draft retrieve:
     sleep(500ms)
     key(ctrl-v)
     
-captain: user.engine_mimic("start command mode")
+captain:
+    mode.disable("sleep")
+    mode.disable("dictation")
+    mode.enable("command")
+    # user.engine_mimic("start command mode")
 dictate:
     # mode.disable("sleep")
     # mode.disable("command")
