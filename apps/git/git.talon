@@ -52,3 +52,6 @@ git commit highlighted:
 
 git compare to:
     insert("git compareto origin/")
+
+force with lease:
+    insert(" --force-with-lease origin ")
