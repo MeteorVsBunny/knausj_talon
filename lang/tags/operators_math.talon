@@ -12,7 +12,7 @@ lodge (power | exponent): user.code_operator_exponent()
 # comparison operators
 lodge (equal|equals): user.code_operator_equal()
 lodge not equal: user.code_operator_not_equal()
-lodge (greater | more): user.code_operator_greater_than()
+lodge (greater | more) [than]: user.code_operator_greater_than()
 lodge (less | below) [than]: user.code_operator_less_than()
 lodge greater [than] or equal: user.code_operator_greater_than_or_equal_to()
 lodge less [than] or equal: user.code_operator_less_than_or_equal_to()
@@ -23,8 +23,8 @@ lodge or: user.code_operator_or()
 lodge not: user.code_operator_not()
 
 # set operators
-lodge in: user.code_operator_in()
-lodge not in: user.code_operator_not_in()
+lodge inside: user.code_operator_in()
+lodge not inside: user.code_operator_not_in()
 
 # TODO: This operator should either be abstracted into a function or removed.
 (lodge | pad) colon: " : "
