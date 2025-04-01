@@ -14,7 +14,7 @@ space: space
 # tab: tab
 insert: insert
 wipe: backspace
-delete: backspace
+# delete: backspace
 # forward delete: delete
 menu: menu
 print screen: printscr
@@ -26,6 +26,7 @@ cancel: escape
 ace: space
 clear: backspace
 deli: delete
+delete: delete
 deckle: :
 semper: ;
 go head: home
