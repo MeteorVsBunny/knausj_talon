@@ -27,8 +27,8 @@ right: key(right)
 fly left: edit.word_left()
 fly right: edit.word_right()
 
-go line start | head: edit.line_start()
-go line end | tail: edit.line_end()
+# go line start | head: edit.line_start()
+# go line end | tail: edit.line_end()
 
 go way left:
     edit.line_start()
@@ -182,7 +182,7 @@ file save all: edit.save_all()
 [go] line mid: user.line_middle()
 
 
-tell sink: edit.line_insert_down()
+(tell|to) sink: edit.line_insert_down()
 earthquake: key(ctrl-enter)
 
 switch over caster:
