@@ -52,3 +52,9 @@ lodge void: insert(" void ")
 
 get: insert("get")
 set: insert("set")
+
+add comment: insert(" // ")
+add to do: insert(" // TODO")
+add Javadoc:
+    insert("/**")
+    key(enter)
