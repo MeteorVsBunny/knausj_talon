@@ -198,6 +198,7 @@ symbol_key_words = {
     "left angle": "<",
     "less than": "<",
     "rangle": ">",
+    "close angle": ">",
     "R angle": ">", # dragon
     "r angle": ">", # conformer
     # "right angle": ">",

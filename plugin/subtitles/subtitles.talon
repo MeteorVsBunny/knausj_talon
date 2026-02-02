@@ -1,6 +1,6 @@
 settings():
     # Show subtitles?
-    user.subtitles_show = 1
+    user.subtitles_show = 0
     # Screens on which to show subtitles:
     # "all" - all screens
     # "main" - main screen as configured in OS

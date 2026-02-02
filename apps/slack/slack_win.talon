@@ -63,6 +63,7 @@ huddle toggle:
 keyboard: key(ctrl-/)
 open [<user.text>]:
     key(ctrl-k)
+    sleep(100ms)
     insert(user.text or "")
 open channel: key(ctrl-k)
 jump: key(ctrl-j)
@@ -76,6 +77,7 @@ hi: "hi "
 okay: "ok "
 no: "no "
 thanks: "thanks "
+cheers: "cheers "
 done: "done "
 
 # DEPRECATED

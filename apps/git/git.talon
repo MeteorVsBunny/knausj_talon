@@ -12,6 +12,8 @@ git stash [push] [<user.git_arguments>] message [<user.prose>]:
     args = git_arguments or ""
     message = prose or ""
     user.insert_between('git stash push{args} --message "{message}', '"')
+git stash push untracked:
+    insert("git stash push -u ")
 
 # Optimistic execution for frequently used commands that are harmless (don't
 # change repository or index state).

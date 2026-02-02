@@ -29,6 +29,7 @@ lodge var: "var "
 # Types Commands
 boxed [type] {user.java_boxed_type}: insert(user.java_boxed_type + " ")
 primitive [type] {user.code_type}: insert(user.code_type + " ")
+primitive integer: insert("int" + " ")
 
 generic [type] {user.java_generic_data_structure}:
     user.insert_between(java_generic_data_structure + "<", ">")
