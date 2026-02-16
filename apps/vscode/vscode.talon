@@ -8,8 +8,8 @@ tag(): user.splits
 tag(): user.tabs
 tag(): user.command_search
 
-settings(): speech.engine = 'wav2letter-conformer'
-
+# settings(): speech.engine = 'wav2letter-conformer'
+settings(): user.context_sensitive_dictation = true
 
 window reload: user.vscode("workbench.action.reloadWindow")
 window close: user.vscode("workbench.action.closeWindow")
@@ -24,11 +24,12 @@ open resource: user.vscode("workbench.action.quickOpen")
 open [<user.text>]:
     user.vscode("workbench.action.quickOpen")
     insert(user.text or "")
-hints (toggle|on|off): user.vscode("cursorless.toggleDecorations")
+(hints|hat) (toggle|on|off): user.vscode("cursorless.toggleDecorations")
 snip: user.vscode("editor.action.deleteLines")
 slide up: user.vscode("editor.action.moveLinesUpAction")
 slide down: user.vscode("editor.action.moveLinesDownAction")
 search it: user.vscode("workbench.action.findInFiles")
+search include: key(tab:5)
 replace it: user.vscode("editor.action.startFindReplaceAction")
 do replace: key(alt-d)
 do replace all: key(alt-a)
