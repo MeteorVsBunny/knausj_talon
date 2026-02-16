@@ -27,6 +27,14 @@ class MyEverywhereActions:
     def keyboard_next():
         ""
         actions.app.tab_next()
+    
+    def keyboard_close():
+        ""
+        actions.app.tab_close()
+
+    def keyboard_open():
+        ""
+        actions.app.tab_open()
 
     def keyboard_repeat():
         ""
