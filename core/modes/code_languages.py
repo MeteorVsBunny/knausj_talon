@@ -33,7 +33,7 @@ code_languages = [
     Language("java", "java", ["java"]),
     Language("javascript", "java script", ["js"]),
     Language("javascriptreact", "java script react", ["jsx"]),
-    # Language("json", "json", ["json"]),
+    Language("json", "json", ["json"]),
     # Language("jsonl", "json lines", ["jsonl"]),
     Language("kotlin", "kotlin", ["kt"]),
     Language("lua", "lua", ["lua"]),
