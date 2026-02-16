@@ -190,18 +190,38 @@ app: jetbrains
 @ctx.action_class("app")
 class AppActions:
     def tab_next():
-        actions.key("escape")
-        actions.user.idea("action NextTab")
+        # actions.key("escape")
+        actions.key("ctrl-pagedown")
+        # actions.user.idea("action NextTab")
 
     def tab_previous():
-        actions.key("escape")
-        actions.user.idea("action PreviousTab")
+        # actions.key("escape")
+        actions.key("ctrl-pageup")
+        # actions.user.idea("action PreviousTab")
 
     def tab_close():
         actions.user.idea("action CloseContent")
 
     def tab_reopen():
         actions.user.idea("action ReopenClosedTab")
+
+@ctx.action_class("user")
+class MyEverywhereActions:
+    def keyboard_prior():
+        ""
+        actions.user.idea("action StepOver")
+
+    def keyboard_next():
+        ""
+        actions.user.idea("action StepOut")
+    
+    def keyboard_close():
+        ""
+        actions.user.idea("action StepInto")
+
+    def keyboard_open():
+        ""
+        actions.user.idea("action Resume")
 
 
 @ctx.action_class("code")
@@ -214,17 +234,18 @@ class CodeActions:
 @ctx.action_class("edit")
 class EditActions:
     # talon edit actions
-    def copy():
-        actions.user.idea("action EditorCopy")
+    # def copy():
+    #     actions.user.idea("action EditorCopy")
 
-    def cut():
-        actions.user.idea("action EditorCut")
+    # def cut():
+    #     actions.user.idea("action EditorCut")
 
-    def delete():
-        actions.user.idea("action EditorBackSpace")
+    # def delete():
+    #     actions.user.idea("action EditorBackSpace")
 
     def paste():
-        actions.user.idea("action EditorPaste")
+        actions.key("ctrl-v")
+    #     actions.user.idea("action EditorPaste")
 
     def find_next():
         actions.user.idea("action FindNext")
@@ -402,6 +423,9 @@ class UserActions:
 
     def split_next():
         actions.user.idea("action NextSplitter")
+    
+    def foot_pedal_left():
+        actions.user.idea("action cursorlessjetbrains.CursorlessToggle")
 
     # def split_last():
     # def split_number(index: int):
@@ -435,6 +459,7 @@ def intellij_templates(m) -> str:
 
 def copy_folder_name():
     actions.user.idea("action ActivateProjectToolWindow")
+    actions.sleep("500ms")
     actions.key("left menu")
     actions.sleep("500ms")
     actions.key("down down down down enter")

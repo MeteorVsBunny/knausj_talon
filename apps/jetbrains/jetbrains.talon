@@ -1,8 +1,12 @@
 app: jetbrains
 -
 settings():
-    key_hold = 25.0
+    # key_hold = 90.0 didn't help, might not have been picked up due to duplication
+    key_hold = 30.0
+    # key_hold = 25.0
     # key_wait = 16.0
+    # speech.timeout = 0.1 # hard, likely too fast
+    user.context_sensitive_dictation = true
 
 tag(): user.line_commands
 tag(): user.multiple_cursors
@@ -13,6 +17,7 @@ tag(): user.command_client
 
 tag(): user.cursorless
 # multiple_cursors.py support end
+(hints|hat) (toggle|on|off): user.idea("action cursorlessjetbrains.CursorlessToggle")
 
 # Auto complete
 complete: user.idea("action CodeCompletion")
@@ -22,7 +27,6 @@ smart: user.idea("action SmartTypeCompletion")
 quick fix: user.idea("action ShowIntentionActions")
 # Copying
 grab <number>: user.idea_grab(number)
-action [<user.text>]: user.deprecate_command("2024-09-02", "action", "please")
 import project: user.idea("action ImportModule")
 maven update: user.idea("action Maven.Reimport")
 
@@ -39,10 +43,11 @@ extract interface: user.idea("action ExtractInterface")
 extract method: user.idea("action ExtractMethod")
 in line: user.idea("action Inline")
 refactor move: user.idea("action Move")
-rename: user.idea("action RenameElement")
-rename file: user.idea("action RenameFile")
-format code: user.idea("action ShowReformatFileDialog")
-# format code: user.idea("action ReformatCode")
+# rename: user.idea("action RenameElement")
+# rename file: user.idea("action RenameFile")
+rename: key(f2)
+# format code: user.idea("action ShowReformatFileDialog")
+format file: user.idea("action ReformatCode")
 do imports: user.idea("action OptimizeImports")
 
 # Editing
@@ -103,7 +108,14 @@ search it: user.idea("action FindInPath")
     user.idea("action GotoSymbol")
     insert(text)
     key("enter")
+locations:
+    # does not work for second press to select checkbox
+    # user.idea("action RecentLocations")
+    key(ctrl-shift-e)
 recent: user.idea("action RecentFiles")
+recent <user.text>:
+    user.idea("action RecentFiles")
+    insert(text)
 replace all: key(ctrl-shift-r)
 
 surround with:
@@ -149,7 +161,7 @@ collapse:
     user.idea("action CollapseRegion")
 #expand deep: user.idea("action ExpandRegionRecursively")
 #expand all: user.idea("action ExpandAllRegions")
-expand all: key(ctrl-equals)
+expand all: key(ctrl-=)
 #collapse deep: user.idea("action CollapseRegionRecursively")
 collapse all: key(ctrl-minus)
 #collapse all: user.idea("action CollapseAllRegions")
@@ -188,7 +200,7 @@ git log: user.idea("action Vcs.ShowTabbedFileHistory")
 git browse: user.idea("action Github.Open.In.Browser")
 git (gets | gist): user.idea("action Github.Create.Gist")
 git (pull request | request): user.idea("action Github.Create.Pull.Request")
-git (view | show | list) (requests | request):
+git ((view|you|pan) | show | list) (requests | request):
     user.idea("action Github.View.Pull.Request")
 git (annotate | blame): user.idea("action Annotate")
 git menu: user.idea("action Vcs.QuickListPopupAction")
@@ -198,6 +210,7 @@ git stash apply: user.idea("action Git.Unstash")
 git fetch: user.idea("action Git.Fetch")
 # git add: user.idea("action ChangesView.AddUnversioned")
 git add: key(ctrl-alt-a)
+git restore staged: key(ctrl-alt-z)
 #git branches: user.idea("action Branches...")
 show history: user.idea("action ShowHistory")
 rollback: key(ctrl-alt-z)
@@ -205,42 +218,44 @@ file rollback: key(menu down down down enter)
 
 # Tool windows:
 # Toggling various tool windows
-view services: user.idea("action ActivateServicesToolWindow")
-view variables:
+(view|you|pan) services: user.idea("action ActivateServicesToolWindow")
+(view|you|pan) variables:
     key(escape)
     user.idea("action ActivateServicesToolWindow")
     # key(tab)
-view stack:
+(view|you|pan) stack:
     key(escape)
     user.idea("action ActivateServicesToolWindow")
     key(shift-tab)
-# view debug:
+# (view|you|pan) debug:
 #     user.idea("action ActivateServicesToolWindow")
 #     key(tab)
 #     key(tab)
-view explore: user.idea("action ActivateProjectToolWindow")
-view problems: user.idea("action ActivateProblemsViewToolWindow")
-view (search|find): user.idea("action ActivateFindToolWindow")
-view run: user.idea("action ActivateRunToolWindow")
-view debug: user.idea("action ActivateDebugToolWindow")
-view events: user.idea("action ActivateEventLogToolWindow")
-view terminal: user.idea("action ActivateTerminalToolWindow")
-view git: user.idea("action ActivateVersionControlToolWindow")
-view commit: user.idea("action ActivateCommitToolWindow")
-view outline: user.idea("action ActivateStructureToolWindow")
-view database: user.idea("action ActivateDatabaseToolWindow")
-view database changes: user.idea("action ActivateDatabaseChangesToolWindow")
-view make: user.idea("action ActivatemakeToolWindow")
-view to do: user.idea("action ActivateTODOToolWindow")
-view docker: user.idea("action ActivateDockerToolWindow")
-view favorites: user.idea("action ActivateFavoritesToolWindow")
-view messages: user.idea("action ActivateMessagesToolWindow")
-view maven: user.idea("action ActivateMavenToolWindow")
-view duplicates: user.idea("action ActivateDuplicatesToolWindow")
-view build: user.idea("action ActivateBuildToolWindow")
-view bookmarks: user.idea("action ActivateBookmarksToolWindow")
-view last: user.idea("action JumpToLastWindow")
-view close: user.idea("action HideActiveWindow")
+(view|you|pan) explore: user.idea("action ActivateProjectToolWindow")
+(view|you|pan) problems: user.idea("action ActivateProblemsViewToolWindow")
+(view|you|pan) (search|find): user.idea("action ActivateFindToolWindow")
+(view|you|pan) run: user.idea("action ActivateRunToolWindow")
+(view|you|pan) debug: user.idea("action ActivateDebugToolWindow")
+vid bug: user.idea("action ActivateDebugToolWindow")
+(view|you|pan) events: user.idea("action ActivateEventLogToolWindow")
+(view|you|pan) terminal: user.idea("action ActivateTerminalToolWindow")
+(view|you|pan) git: user.idea("action ActivateVersionControlToolWindow")
+(view|you|pan) commit: user.idea("action ActivateCommitToolWindow")
+(view|you|pan) (outline|structure): user.idea("action ActivateStructureToolWindow")
+(view|you|pan) database: user.idea("action ActivateDatabaseToolWindow")
+(view|you|pan) database changes: user.idea("action ActivateDatabaseChangesToolWindow")
+(view|you|pan) make: user.idea("action ActivatemakeToolWindow")
+(view|you|pan) to do: user.idea("action ActivateTODOToolWindow")
+(view|you|pan) docker: user.idea("action ActivateDockerToolWindow")
+(view|you|pan) favorites: user.idea("action ActivateFavoritesToolWindow")
+(view|you|pan) messages: user.idea("action ActivateMessagesToolWindow")
+(view|you|pan) maven: user.idea("action ActivateMavenToolWindow")
+(view|you|pan) gradle: user.idea("action ActivateGradleToolWindow")
+(view|you|pan) duplicates: user.idea("action ActivateDuplicatesToolWindow")
+(view|you|pan) build: user.idea("action ActivateBuildToolWindow")
+(view|you|pan) bookmarks: user.idea("action ActivateBookmarksToolWindow")
+(view|you|pan) last: user.idea("action JumpToLastWindow")
+(view|you|pan) close: user.idea("action HideActiveWindow")
 # Pin/dock/float
 toggle pinned: user.idea("action TogglePinnedMode")
 toggle docked: user.idea("action ToggleDockMode")
@@ -311,8 +326,8 @@ inspect: key(alt-f8 enter)
 #next occurrence: user.idea("action NextOccurrence")
 side next: key(ctrl-alt-down)
 side prior: key(ctrl-alt-up)
-next: user.idea("action GotoNextError")
-prior: user.idea("action GotoPreviousError")
+er next: user.idea("action GotoNextError")
+er prior: user.idea("action GotoPreviousError")
 accept: key(alt-shift-enter)
 blind accept:
     user.idea("action GotoNextError")
@@ -344,7 +359,7 @@ paste <number> until <number>:
 refactor <number> until <number>:
     user.select_range(number_1, number_2)
     user.idea("action Refactorings.QuickListPopupAction")
-bring row <number>: user.line_clone(number)
+# bring row <number>: user.line_clone(number)
 # move row <number>:
     # user.select_range(number, number)
     # user.idea("action EditorCut")
@@ -359,8 +374,8 @@ comment next <user.text> [over]:
     user.idea("find next {text}, action CommentByLineComment")
 go last <user.text> [over]: user.idea("find prev {text}, action EditorRight")
 go next <user.text> [over]: user.idea("find next {text}, action EditorRight")
-go <number> <user.text> [over]:
-    user.idea("goto {number} 0,find next {text}, action EditorRight")
+# go <number> <user.text> [over]:
+    # user.idea("goto {number} 0,find next {text}, action EditorRight")
 paste last <user.text> [over]:
     user.idea("find prev {text}, action EditorRight, action EditorPaste")
 paste next <user.text> [over]:
@@ -412,6 +427,9 @@ chuck cam right: user.idea("action EditorDeleteToWordEndInDifferentHumpsMode")
 # requires plug-in: black-pycharm
 blacken: user.idea("action BLACKReformatCode")
 
+ # does not work
+# create new scratch: user.idea("action NewScratchFile")
+create new scratch: key(ctrl-alt-shift-insert)
 create new file: user.idea("action NewFile")
 create new class: user.idea("action NewClass")
 compare files: user.idea("action CompareTwoFiles")
@@ -436,8 +454,9 @@ plate todo: insert("// TODO ")
 plate <user.intellij_templates>:
     user.idea("action InsertLiveTemplate")
     # key(ctrl-j)
+    # sleep(50ms)
     insert(intellij_templates)
-    sleep(500ms)
+    sleep(250ms)
     key(enter)
 
 vim toggle: user.idea("action VimPluginToggle")
@@ -447,14 +466,25 @@ go block end: user.idea("action EditorCodeBlockEnd")
 
 # no action id
 (jump to|go) file: key(f4)
-(jump to|go) diff: user.idea("action Compare.SameVersion")
+(jump to|go) (diff|death): user.idea("action Compare.SameVersion")
 
 plain copy that: user.idea("action CopyAsPlainText")
 split move: user.idea("action MoveEditorToOppositeTabGroup")
 
+generate get set:
+    user.idea("action ShowIntentionActions")
+    insert("getset")
+    key(enter)
+
+auto fill:
+    user.idea("action ShowIntentionActions")
+    insert("auto fill")
+    # sleep(250ms)
+    key(enter)
+
 take class name: key(ctrl-home alt-shift-down ctrl-w)
 
-view log:
+(view|you|pan) log:
     mouse_move(2719, 967)
     # mouse_move(3893, 909)
     # right click to avoid clicking links
