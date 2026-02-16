@@ -3,6 +3,8 @@ and app.name: Windows Wordpad Application
 os: windows
 and app.exe: wordpad.exe
 -
+settings():
+    speech.engine = 'dragon'
 
 draft transfer:
     key(ctrl-a)
