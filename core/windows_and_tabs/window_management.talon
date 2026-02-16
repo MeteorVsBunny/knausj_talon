@@ -12,7 +12,7 @@ running close: user.switcher_hide_running()
 please launch <user.launch_applications>: user.switcher_launch(launch_applications)
 
 window stretch: key(super-shift-up)
-manage <user.window_snap_position>: user.snap_window(window_snap_position)
+(manage|window) <user.window_snap_position>: user.snap_window(window_snap_position)
 monitor right: user.move_window_next_screen()
 monitor left: user.move_window_previous_screen()
 snap screen <number>: user.move_window_to_screen(number)
@@ -24,7 +24,7 @@ snap <user.window_split_position> <user.running_applications> <user.running_appl
 snap <user.running_applications> [screen] <number>:
     user.move_app_to_screen(running_applications, number)
 
-window max: key(super-up:2)
+window max: key(super-up)
 dredge: key(alt-tab)
 [go] desktop: key(super-d)
 
@@ -46,18 +46,18 @@ flip terminal: key(super-8)
 draft new:
     user.switcher_focus("wordpad")
     key(ctrl-a)
-    mode.enable("dictation")
+    # mode.enable("dictation")
     # user.code_clear_language_mode()
     # mode.disable("user.gdb")
-    user.engine_mimic("start normal mode")
+    # user.engine_mimic("start normal mode")
 draft that:
     key(ctrl-c)
     user.switcher_focus("wordpad")
     key(ctrl-a)
-    mode.enable("dictation")
+    # mode.enable("dictation")
     # user.code_clear_language_mode()
     # mode.disable("user.gdb")
-    user.engine_mimic("start normal mode")
+    # user.engine_mimic("start normal mode")
     key(ctrl-v)
 draft retrieve:
     user.switcher_focus("wordpad")
