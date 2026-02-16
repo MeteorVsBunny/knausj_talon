@@ -99,6 +99,12 @@ gaze_head_on = 0
 
 @ctx.action_class("user")
 class UserActions:
+    def noise_trigger_hiss(active: bool):
+        global gaze_head_on
+        if gaze_head_on == 1:
+            gaze_head_on = 0
+            actions.tracking.control_gaze_toggle(False)
+            actions.tracking.control_head_toggle(False)
 
     def noise_trigger_pop():
         dont_click = False

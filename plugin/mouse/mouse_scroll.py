@@ -149,17 +149,18 @@ class Actions:
         hiss_scroll_up = False
 
 
-@ctx.action_class("user")
-class UserActions:
-    def noise_trigger_hiss(active: bool):
-        if settings.get("user.mouse_enable_hiss_scroll"):
-            if active:
-                if hiss_scroll_up:
-                    actions.user.mouse_scroll_up_continuous()
-                else:
-                    actions.user.mouse_scroll_down_continuous()
-            else:
-                actions.user.mouse_scroll_stop()
+# @ctx.action_class("user")
+# class UserActions:
+#     def noise_trigger_hiss(active: bool):
+#         print("hs")
+#         if settings.get("user.mouse_enable_hiss_scroll"):
+#             if active:
+#                 if hiss_scroll_up:
+#                     actions.user.mouse_scroll_up_continuous()
+#                 else:
+#                     actions.user.mouse_scroll_down_continuous()
+#             else:
+#                 actions.user.mouse_scroll_stop()
 
 
 def mouse_scroll_continuous(new_scroll_dir: Literal[-1, 1]):
